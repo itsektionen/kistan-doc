@@ -4,10 +4,10 @@
   "description": "Documentation for everything in Kistan 2.0",
   "main": "index.js",
   "authors": {
-    "name": "Sture IN-Sektionen",
-    "email": "sture@insektionen.se"
+    "name": "Sture IT-Sektionen",
+    "email": "sture@kth.it"
   },
-  "repository": "github.com/insektionen/kistan-doc/kistan-doc",
+  "repository": "github.com/itsektionen/kistan-doc/",
   "scripts": {
     "dev": "DEBUG=true vuepress dev --host 0.0.0.0 src/",
     "build": "vuepress build src/",
@@ -15,12 +15,12 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.18",
+    "@vuepress/bundler-vite": "^2.0.0-rc.24",
     "@vuepress/plugin-search": "2.0.0-rc.55",
     "@vuepress/theme-default": "2.0.0-rc.58",
-    "sass-embedded": "^1.80.5",
+    "sass-embedded": "^1.92.1",
     "vue": "3.5.12",
-    "vuepress": "2.0.0-rc.18",
+    "vuepress": "^2.0.0-rc.24",
     "vuepress-plugin-serve": "2.0.4"
   }
 }

@@ -3,12 +3,10 @@
 }
 
 :root {
-  --c-brand: #44687D;
-  --c-brand-light: #44687D;
-
-  --c-text: #2C3E50;
+  --vp-c-text: #2A294B;
+  --vp-c-accent: #403050
 }
 
-html.dark {
-  --c-brand: #44687D;
+[data-theme='dark'] {
+  --vp-c-text: #E2E2F8;
 }

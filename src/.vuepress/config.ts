@@ -9,7 +9,7 @@ export default defineUserConfig({
     description: "Documentation for everything in Kistan 2.0",
 
     head: [
-        ['meta', {name: 'theme-color', content: '#3eaf7c'}],
+        ['meta', {name: 'theme-color', content: '#CC99FF'}],
         ['meta', {name: 'apple-mobile-web-app-capable', content: 'yes'}],
         ['meta', {
             name: 'apple-mobile-web-app-status-bar-style',
@@ -25,7 +25,7 @@ export default defineUserConfig({
   }),
     theme: defaultTheme({
         editLink: true,
-        docsRepo: 'https://github.com/insektionen/kistan-doc',
+        docsRepo: 'https://github.com/itsektionen/kistan-doc',
         docsBranch: 'master',
         docsDir: 'src',
         lastUpdated: true,
