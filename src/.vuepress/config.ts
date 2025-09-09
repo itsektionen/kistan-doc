@@ -20,9 +20,9 @@ export default defineUserConfig({
         searchPlugin({}),
     ],
     bundler: viteBundler({
-    viteOptions: {},
-    vuePluginOptions: {},
-  }),
+        viteOptions: {},
+        vuePluginOptions: {},
+    }),
     theme: defaultTheme({
         editLink: true,
         docsRepo: 'https://github.com/itsektionen/kistan-doc',
@@ -107,8 +107,29 @@ export default defineUserConfig({
                 ],
             },
             {
-                text: 'IN-Sektionen',
-                link: 'https://insektionen.se',
+                text: 'Servers/Hosting',
+                children: [
+                    {
+                        text: 'Server: IN-SMN',
+                        link: '/servers/in_smn'
+                    },
+                    {
+                        text: 'Server: IN-ITK',
+                        link: '/servers/in_itk'
+                    },
+                    {
+                        text: 'SSO / Login',
+                        link: '/servers/sso/',
+                    },
+                    {
+                      text: 'Grafana',
+                      link: '/servers/grafana'
+                    },
+                ]
+            },
+            {
+                text: 'IT-Sektionen',
+                link: 'https://kth.it',
             },
         ],
         sidebar: {
