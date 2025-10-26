@@ -48,6 +48,23 @@ one layer.
 output("192.168.1.10", 1234, master)
 ```
 
+### `artnet_output`
+
+Create a new output in the ArtNet[1] format.
+
+| Name     | Optional | Description                      |
+|----------|----------|----------------------------------|
+| Hostname | No       | Hostname for output of the layer |
+| Universe | No       | ArtNet universe                  |
+| Layer    | No       | Layer to send                    |
+
+**Example:** Send the master layer in ArtNet format to specific host with
+universe set to 123.
+
+```lua
+artnet_output("192.168.1.10", 123, master)
+```
+
 ### `input`
 
 Open a UDP port and bind data messages on that port to an existing layer.
@@ -279,3 +296,4 @@ Stop playback of all sound files. No parameters.
 stop_play()
 ```
 
+[1]: https://en.wikipedia.org/wiki/Art-Net
