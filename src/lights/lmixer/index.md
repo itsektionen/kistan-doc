@@ -22,11 +22,22 @@ An input can be created to bind an incoming UDP stream to layer data.
 ### Layers
 
 A layer is the base for data storage and manipulation. A layer can be combined
-with another layer using mathematical operations. An output can be bound to a
-layer so that every render of the layer is sent to that output.
+with another layer using mathematical operations. Layers can be stacked and
+nested. It is quite similar to how image editing programs use layers.
+
+An output can be bound to a layer so that every render of the layer is sent 
+to that output.
 
 It is also possible to create layers from inputs. This can be used to add remote
 sources of color information from other programs.
+
+### Alpha-Data Layers
+<KistanExclusive lmixer="true"></KistanExclusive>
+
+An Alpha-Data Layer works the same as a normal layer, except for the fact that it
+has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
+effect, when the alpha is 1, this layer fully overrides whatever is below it in
+the layer order.
 
 ### Fixtures
 
