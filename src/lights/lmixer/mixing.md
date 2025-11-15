@@ -75,5 +75,14 @@ same script. For instance, to make the DJ floor situation described in
 [Multi-layer scripting](#multi-layer-scripting), having a `dj` layer, taking
 control of the fixtures is done in a start script and releasing control in an end script.
 
+***Example:*** Multi-script layer control:
+```lua
+-- DJ_Start
+dj:add(0, take_control_of_fixture(djFixtures, 1000))
+```
+```lua
+-- DJ_Stop
+dj:add(0, release_control_of_fixture(djFixtures, 1000))
+```
 
 </KistanExclusive>

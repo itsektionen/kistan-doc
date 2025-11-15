@@ -35,6 +35,10 @@ dimmer = layer(master, mul, 512, 1)
 
 ### Create alpha-data layer
 
+Alpha-data layers are layers with alpha support. The alpha blends between the layers below
+this one and it self. An alpha of 0 means keep the layers below, an alpha of 1 means "replace"
+the layers below with this layer.
+
 Alpha-data layers inheirt from `layer`, thus the information about `layer` also applies here.
 
 | Name          | Optional | Description                                               |
@@ -363,9 +367,11 @@ jingle:add(0, take_control_of_fixture(lamps, 1000))
 :::important
 Remember to [release the control of the fixture](#release-control-of-fixture),
 otherwise, when another script is ran, the fixture will still be controlled,
-by the the layer.
+by the the layer. 
 
-
+(This can sometimes be desired however, see 
+[Alpha-data layer scripting](mixing.html#alpha-data-layer-scripting) for an
+example of multi-script layer control)
 :::
 
 ### `release_control_of_fixture`
@@ -382,6 +388,12 @@ Sets the alpha of a fixture group to 0 over a transition time
 jingle:add(3000, release_control_of_fixture(lamps, 1000))
 ```
 
+
+:::note
+The "take control" and "release control" terminology can be slightly confusing
+when it comes to priority. The priority is ***always*** whatever is latest in
+the layer order (the order that layers are added as children).
+:::
 </KistanExclusive>
 
 [1]: https://en.wikipedia.org/wiki/Art-Net

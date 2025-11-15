@@ -43,6 +43,18 @@ The alpha can be set on a per channel basis, this is done by accessing the layer
 `alpha` property. This is another layer which can be altered in the same way as
 other layers (i.e. `lay.alpha:add(...)`).
 
+:::note
+Even if the alpha is zero, effects are still executed.
+
+For [set](scripting.html#set) and [dim](scripting.html#dim), the new data is
+calculated, but does not take effect until the alpha is set to a non-zero value.
+
+For [execute](scripting.html#execute), [run](scripting.html#run), 
+[play](scripting.html#play), and [stop_play](scripting.html#stop_play), since
+they do not effect the data anyway, they are executed exactly like normal,
+regardless of the alpha.
+:::
+
 </KistanExclusive>
 
 ### Fixtures
