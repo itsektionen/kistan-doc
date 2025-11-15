@@ -31,13 +31,19 @@ to that output.
 It is also possible to create layers from inputs. This can be used to add remote
 sources of color information from other programs.
 
-### Alpha-Data Layers
-<KistanExclusive lmixer="true"></KistanExclusive>
+<KistanExclusive lmixer="true">
 
+### Alpha-Data Layers
 An Alpha-Data Layer works the same as a normal layer, except for the fact that it
 has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
 effect, when the alpha is 1, this layer fully overrides whatever is below it in
 the layer order.
+
+The alpha can be set on a per channel basis, this is done by accessing the layers
+`alpha` property. This is another layer which can be altered in the same way as
+other layers (i.e. `lay.alpha:add(...)`).
+
+</KistanExclusive>
 
 ### Fixtures
 

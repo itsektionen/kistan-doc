@@ -31,6 +31,55 @@ is 1.
 dimmer = layer(master, mul, 512, 1)
 ```
 
+<KistanExclusive lmixer="true">
+
+### Create alpha-data layer
+
+Alpha-data layers inheirt from `layer`, thus the information about `layer` also applies here.
+
+| Name          | Optional | Description                                               |
+|---------------|----------|-----------------------------------------------------------|
+| Base layer    | No       | Layer to do operation on, `nil` if this is the base layer |
+| Size          | No       | How many bytes is this layer                              |
+
+**Example:** Create a new alpha-data layer on master
+
+```lua
+jingle = alpha_data_layer(master, 512)
+```
+
+Alpha-data start with an alpha of 0, this needs to be changed for the layer to be visible,
+see [alpha-data-layer.alpha](#alpha-data-layer-alpha).
+
+:::warning
+Do not add child layers to an alpha-data-layer ***unless*** their operation is `mul`. This is
+because the alpha layer is processed first instead of last, causing the alpha to not apply
+correctly on the children. This is unintented and usage is ***highly*** discouraged,
+as it is subject to change.
+:::
+
+### `<alpha-data-layer>.alpha`
+
+Alpha-data layers are made of two layer, the data layer (the "main" layer"), and the alpha
+layer which is accessed via .alpha. It is a standard layer, thus the :add works like expected.
+
+**Example:** Sets the color of the lamp, but this is not visible until the layers alpha is set,
+specifically the light has it's color components (Red, Green, Blue) set to the new value one by
+one instead of all at once.
+
+```lua
+jingle:add(1000, set(lamp1, 255, 128, 255, 0))
+jingle.alpha:add(2000, set(lamp1, 1, 0, 0, 0))
+jingle.alpha:add(3000, set(lamp1, 1, 1, 0, 0))
+jingle.alpha:add(4000, set(lamp1, 1, 1, 1, 0))
+```
+:::tip
+In this case, direct alpha access makes since, however, in general taking control of the entire
+fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
+[release_control_of_fixture](#release-control-of-fixture) should be used.
+:::
+</KistanExclusive>
+
 ### `output`
 
 Output controls what data is sent to each controller. An output can only send
@@ -295,5 +344,44 @@ Stop playback of all sound files. No parameters.
 ```lua
 stop_play()
 ```
+<KistanExclusive>
+
+### `take_control_of_fixture`
+
+Sets the alpha of a fixture group to 1 over a transition time
+
+| Name          | Optional | Description                          |
+|---------------|----------|--------------------------------------|
+| Group         | No       | Group to iterate over                |
+| Fade Time     | No       | Fade time until alpha is 1           |
+
+***Example:*** Take control of the washes and lamps
+```lua
+jingle:add(0, take_control_of_fixture(lamps, 1000))
+```
+
+:::important
+Remember to [release the control of the fixture](#release-control-of-fixture),
+otherwise, when another script is ran, the fixture will still be controlled,
+by the the layer.
+
+
+:::
+
+### `release_control_of_fixture`
+
+Sets the alpha of a fixture group to 0 over a transition time
+
+| Name          | Optional | Description                          |
+|---------------|----------|--------------------------------------|
+| Group         | No       | Group to iterate over                |
+| Fade Time     | No       | Fade time until alpha is 0           |
+
+***Example:*** Releases control of the lamps
+```lua
+jingle:add(3000, release_control_of_fixture(lamps, 1000))
+```
+
+</KistanExclusive>
 
 [1]: https://en.wikipedia.org/wiki/Art-Net
