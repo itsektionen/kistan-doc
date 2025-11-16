@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import * as fixtureConfigUnknown from "../../../fixtureConfig.json";
+import * as fixtureConfigUnknown from "../../../lights/fixtureConfig.json";
 import { FixtureConfig, FixtureTypeSchema } from './fixtureConfigSchema';
 import AnchoredH3 from '../ThemeComponents/AnchoredH3.vue';
 const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
@@ -11,6 +11,10 @@ const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
     <template v-for="(fixtureType, fixtureTypeId) in (fixtureConfig.fixtureTypes as Record<string, FixtureTypeSchema>)">
         <AnchoredH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</AnchoredH3>
         <template v-if="fixtureType.model"><b>Model: </b>{{ fixtureType.model }}</template>
+        <template v-if="fixtureType.description">
+            <br/>
+            {{fixtureType.description}}
+        </template>
         <table>
             <thead>
                 <tr>

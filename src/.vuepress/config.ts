@@ -166,6 +166,7 @@ export default defineUserConfig({
                         '/lights/dmx/kistan',
                         '/lights/dmx/kistan_fixture_types',
                         '/lights/dmx/kistan_fixtures',
+                        '/lights/dmx/fixture_config',
                     ]
                 }
             ],
