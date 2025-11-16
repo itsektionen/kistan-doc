@@ -2,43 +2,634 @@
     "formatVersion": 1,
     "fixtureTypes": {
         "wallSpotPAR64": {
-            "chLength": 7,
+            "channels": {
+                "1": {
+                    "id": "colRed",
+                    "displayName": "Red"
+                },
+                "2": {
+                    "id": "colGreen",
+                    "displayName": "Green"
+                },
+                "3": {
+                    "id": "colBlue",
+                    "displayName": "Blue"
+                },
+                "4": {
+                    "id": "wallSpotMacro",
+                    "displayName": "Macro",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 7,
+                            "functionID": "off",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 8,
+                            "max": 255,
+                            "functionID": "set",
+                            "displayName": "Macro"
+                        }
+                    ]
+                },
+                "5": {
+                    "id": "wallSpotStrobe",
+                    "displayName": "Strobe",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 15,
+                            "functionID": "off",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 16,
+                            "max": 255,
+                            "functionID": "set",
+                            "displayName": "Strobe"
+                        }
+                    ]
+                },
+                "6": {
+                    "id": "wallSpotMode",
+                    "displayName": "Mode",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 1,
+                            "max": 31,
+                            "functionID": "color",
+                            "displayName": "Color"
+                        },
+                        {
+                            "min": 32,
+                            "max": 63,
+                            "functionID": "fadeout",
+                            "displayName": "Fade Out"
+                        },
+                        {
+                            "min": 64,
+                            "max": 95,
+                            "functionID": "fadein",
+                            "displayName": "Fade In"
+                        },
+                        {
+                            "min": 96,
+                            "max": 127,
+                            "functionID": "fadeinout",
+                            "displayName": "Fade In/Out"
+                        },
+                        {
+                            "min": 128,
+                            "max": 129,
+                            "functionID": "automix",
+                            "displayName": "Auto Mix"
+                        },
+                        {
+                            "min": 160,
+                            "max": 191,
+                            "functionID": "colorChase3",
+                            "displayName": "3 Color Chase"
+                        },
+                        {
+                            "min": 192,
+                            "max": 223,
+                            "functionID": "colorChase7",
+                            "displayName": "7 Color Chase"
+                        },
+                        {
+                            "min": 224,
+                            "max": 225,
+                            "functionID": "soundSensitive",
+                            "displayName": "Sound"
+                        }
+                    ]
+                },
+                "7": {
+                    "id": "dimmer",
+                    "displayName": "Dimmer"
+                }
+            },
             "displayName": "PAR64 Wall Spot"
         },
         "RGBColor": {
-            "chLength": 3,
+            
+            "channels": {
+                "1": {
+                    "id": "colRed",
+                    "displayName": "Red"
+                },
+                "2": {
+                    "id": "colGreen",
+                    "displayName": "Green"
+                },
+                "3": {
+                    "id": "colBlue",
+                    "displayName": "Blue"
+                }
+            },
             "displayName": "RGB Color"
         },
         "BrightnessChannel": {
-            "chLength": 1,
+            "channels": {
+                "1": {
+                    "id": "brightness",
+                    "displayName": "Brightness"
+                }
+            },
             "displayName": "Brightness",
             "displayNamePlural": "Brightnesses"
         },
         "UnknownTypeUINT8": {
-            "chLength": 1,
+            "channels": {
+                "1": {
+                    "id": "generic8",
+                    "displayName": "Unknown 8bit"
+                }
+            },
             "displayName": "Single Byte",
             "displayNamePlural": "Single Bytes"
         },
         "movingHead_iMove5S": {
-            "chLength": 5,
             "displayName": "Moving Head iMove 5S",
-            "model": "iMove 5S"
+            "model": "iMove 5S",
+            
+            "channels": {
+                "1": {
+                    "id": "tilt",
+                    "displayName": "Tilt"
+                },
+                "2": {
+                    "id": "pan",
+                    "displayName": "Pan"
+                },
+                "3": {
+                    "id": "shutter",
+                    "displayName": "Shutter"
+                },
+                "4": {
+                    "id": "pattern",
+                    "displayName": "Pattern"
+                },
+                "5": {
+                    "id": "color",
+                    "displayName": "Color"
+                }
+            }
         },
         "dmxRelay": {
-            "chLength": 3,
+            "channels": {
+                "1": {
+                    "id": "relay",
+                    "displayName": "Relay",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                }
+            },
             "displayName": "DMX Relay",
             "displayNamePlural": "DMX Relays"
         },
         "dmxRelayTriplet": {
-            "chLength": 3,
+            "channels": {
+                "1": {
+                    "id": "relay1",
+                    "displayName": "Relay 1",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "2": {
+                    "id": "relay2",
+                    "displayName": "Relay 2",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "3": {
+                    "id": "relay3",
+                    "displayName": "Relay 3",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                }
+            },
             "displayName": "DMX Triple Relay",
             "displayNamePlural": "DMX Triple Relays"
         },
         "washVarytec715": {
-            "chLength": 16,
             "displayName": "Wash",
             "displayNamePlural": "Washes",
-            "model": "Varytec Hero Wash 715 HEX LED"
+            "model": "Varytec Hero Wash 715 HEX LED",
+            "channels": {
+                "1": {
+                    "id": "pan",
+                    "displayName": "Pan",
+                    "mapRangeForHuman": {
+                        "min": 0,
+                        "max": 540
+                    }
+                },
+                "2": {
+                    "id": "pan_lower",
+                    "displayName": "Pan (fine)",
+                    "lowerNibbleForChannel": 1
+                },
+                "3": {
+                    "id": "tilt",
+                    "displayName": "Tilt",
+                    "mapRangeForHuman": {
+                        "min": -95,
+                        "max": 95
+                    }
+                },
+                "4": {
+                    "id": "tilt_lower",
+                    "displayName": "Tilt (fine)",
+                    "lowerNibbleForChannel": 3
+                },
+                "5": {
+                    "id": "pan_tilt_speed",
+                    "displayName": "Pan/Tilt speed"
+                },
+                "6": {
+                    "id": "dimmer",
+                    "displayName": "Dimmer"
+                },
+                "7": {
+                    "id": "strobe",
+                    "displayName": "Shutter (strobe)",
+                    
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 9,
+                            "functionID": "off",
+                            "displayName": "Open",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 10,
+                            "max": 250,
+                            "functionID": "speed",
+                            "displayName": "Strobe 0-20Hz",
+                            "mapRangeForHuman": {
+                                "min": 0,
+                                "max": 20
+                            }
+                        },
+                        {
+                            "min": 251,
+                            "max": 255,
+                            "functionID": "off",
+                            "displayName": "Open",
+                            "identicalWithinRange": true
+                        }
+                    ]
+                },
+                "8": {
+                    "id": "colRed",
+                    "displayName": "Red"
+                },
+                "9": {
+                    "id": "colGreen",
+                    "displayName": "Green"
+                },
+                "10": {
+                    "id": "colBlue",
+                    "displayName": "Blue"
+                },
+                "11": {
+                    "id": "colWhite",
+                    "displayName": "White"
+                },
+                "12": {
+                    "id": "colAmber",
+                    "displayName": "Amber"
+                },
+                "13": {
+                    "id": "colUV",
+                    "displayName": "UV"
+                },
+                "14": {
+                    "id": "colTemperature",
+                    "displayName": "Color Temperature"
+                },
+                "15": {                    
+                    "id": "colorMacro",
+                    "displayName": "Color Macro",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 10,
+                            "functionID": "off",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 11,
+                            "max": 20,
+                            "functionID": "red1_white0.5",
+                            "displayName": "Red, 50% white",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 21,
+                            "max": 30,
+                            "functionID": "red1",
+                            "displayName": "Red",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 31,
+                            "max": 40,
+                            "functionID": "red1_amber1",
+                            "displayName": "Red, amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 41,
+                            "max": 50,
+                            "functionID": "amber1",
+                            "displayName": "Amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 51,
+                            "max": 60,
+                            "functionID": "red1_green0.75_amber1",
+                            "displayName": "Red, 75% green, amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 61,
+                            "max": 70,
+                            "functionID": "red1_green1",
+                            "displayName": "Red, green",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 71,
+                            "max": 80,
+                            "functionID": "green1",
+                            "displayName": "Green",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 81,
+                            "max": 90,
+                            "functionID": "green1_white1",
+                            "displayName": "Green, white",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 91,
+                            "max": 100,
+                            "functionID": "green1_uv1",
+                            "displayName": "Green, UV",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 101,
+                            "max": 110,
+                            "functionID": "green1_blue1",
+                            "displayName": "Green, Blue",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 111,
+                            "max": 120,
+                            "functionID": "blue1_uv1",
+                            "displayName": "Blue, UV",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 121,
+                            "max": 130,
+                            "functionID": "blue1",
+                            "displayName": "Blue",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 131,
+                            "max": 140,
+                            "functionID": "uv1",
+                            "displayName": "UV",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 141,
+                            "max": 150,
+                            "functionID": "uv1_red0.5",
+                            "displayName": "UV, 50% red",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 151,
+                            "max": 160,
+                            "functionID": "uv1_amber1",
+                            "displayName": "UV, amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 161,
+                            "max": 170,
+                            "functionID": "uv1_amber1_red1",
+                            "displayName": "UV, amber, red",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 171,
+                            "max": 180,
+                            "functionID": "uv1_red1",
+                            "displayName": "UV, red",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 181,
+                            "max": 190,
+                            "functionID": "red1_white1_amber1",
+                            "displayName": "Red, white, amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 191,
+                            "max": 200,
+                            "functionID": "white1_amber1",
+                            "displayName": "White, amber",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 201,
+                            "max": 210,
+                            "functionID": "white1",
+                            "displayName": "White",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 211,
+                            "max": 220,
+                            "functionID": "white1_blue1",
+                            "displayName": "White, blue",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 221,
+                            "max": 230,
+                            "functionID": "red1_green1_blue1_white1_amber1_uv1",
+                            "displayName": "Red, green, blue, white, amber, uv",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 231,
+                            "max": 240,
+                            "functionID": "colorSequence",
+                            "displayName": "Color sequence, increasing speed"
+                        },
+                        {
+                            "min": 241,
+                            "max": 255,
+                            "functionID": "colorFade",
+                            "displayName": "Color Fade, increasing speed"
+                        }
+                    ]
+                },
+                "16": {                    
+                    "id": "program",
+                    "displayName": "Auto Program",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 10,
+                            "functionID": "off",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 11,
+                            "max": 20,
+                            "functionID": "show1",
+                            "displayName": "Show1",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 21,
+                            "max": 30,
+                            "functionID": "show2",
+                            "displayName": "Show2",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 31,
+                            "max": 40,
+                            "functionID": "show3",
+                            "displayName": "Show3",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 41,
+                            "max": 50,
+                            "functionID": "show4",
+                            "displayName": "Show4",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 51,
+                            "max": 60,
+                            "functionID": "show5",
+                            "displayName": "Show5",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 61,
+                            "max": 70,
+                            "functionID": "show6",
+                            "displayName": "Show6",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 71,
+                            "max": 80,
+                            "functionID": "show7",
+                            "displayName": "Show7",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 81,
+                            "max": 90,
+                            "functionID": "show8",
+                            "displayName": "Show8",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 91,
+                            "max": 230,
+                            "functionID": "soundSensitive",
+                            "displayName": "Sound control (mic sensitivity)"
+                        },
+                        {
+                            "min": 231,
+                            "max": 240,
+                            "functionID": "reset",
+                            "displayName": "Reset, more than 3 seconds",
+                            "identicalWithinRange": true
+                        }
+                    ]
+                }
+            }
         }
     },
     "fixtures": {
