@@ -10,6 +10,9 @@ This file exists reduce maintenance for future projects. Instead of all of the p
 of the fixtures in kistan, and having to update every project for every fixture, it is centralized into a
 single config file which needs to be maintained.
 
+This config file is also responsible for generating [Fixture types in Kistan](kistan_fixture_types.html) and
+[Fixtures in Kistan's LMixer](kistan_lmixer_fixtures.html)
+
 ## ID Naming
 
 IDs should always follow snake_case. Capital letters are allowed in names and abreviations.
