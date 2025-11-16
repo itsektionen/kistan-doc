@@ -25,10 +25,10 @@ defineProps<{
             <tr v-for="fixture in fixtureGroup.fixtures">
                 <td>
                     <template v-if="fixtureConfig.fixtureGroups[fixture] != undefined">
-                        <a :href="'#fixture-group-' + fixture">{{ fixture }}</a>
+                        <RouterLink :to="'#fixture-group-' + fixture">{{ fixture }}</RouterLink>
                     </template>
                     <template v-else>
-                        <a :href="relativePathToFixtureInfo + '#fixture-group-' + fixture">{{ fixture }}</a>
+                        <RouterLink :to="relativePathToFixtureInfo + '#fixture-group-' + fixture">{{ fixture }}</RouterLink>
                     </template>
                 </td>
             </tr>

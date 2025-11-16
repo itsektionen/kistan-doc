@@ -7,12 +7,15 @@ const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 
 defineProps<{
     fixtureType: FixtureTypeSchema,
-    fixtureTypeId: string
+    fixtureTypeId: string,
+    isDropdown?: boolean
 }>()
 </script>
 
 <template>
-    <AnchoredH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</AnchoredH3>
+    <template v-if="!isDropdown">
+        <AnchoredH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</AnchoredH3>
+    </template>
     <template v-if="fixtureType.model"><b>Model: </b>{{ fixtureType.model }}</template>
     <template v-if="fixtureType.description">
         <br />

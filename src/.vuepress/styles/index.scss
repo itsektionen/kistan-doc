@@ -1,18 +1,37 @@
 
 .home .hero img {
-  max-width: 450px !important
+    max-width: 450px !important
 }
 
 :root {
-  --vp-c-text: #2A294B;
-  --vp-c-accent: #8818f8;
-  --vp-c-accent-bg: #ca95ff;
+    --vp-c-text: #2A294B;
+    --vp-c-accent: #8818f8;
+    --vp-c-accent-bg: #ca95ff;   
+
+    --content-drawer-bg: #e9e0f3;
+    --content-drawer-bg-hover: #e2cef5;
+    --content-drawer-border-color: #a573d6;
+  
+    --exclusive-accent: rgb(101, 83, 202);
+    --exclusive-border: hsl(252, 79%, 87%);
+    --exclusive-background: rgb(237, 235, 255);
+    --exclusive-bg-alt: rgb(217, 204, 241);
 }
 
 [data-theme='dark'] {
-  --vp-c-text: #E2E2F8;
-  --vp-c-accent: #b469ff;
-  --vp-c-accent-bg: #b469ff;
+    --vp-c-text: #E2E2F8;
+    --vp-c-accent: #b469ff;
+    --vp-c-accent-bg: #b469ff;
+
+
+    --content-drawer-bg: #201829;
+    --content-drawer-bg-hover: #232230;
+    --content-drawer-border-color: #7438af;
+  
+    --exclusive-accent: #aeb5f5;
+    --exclusive-border: rgb(34, 39, 68);
+    --exclusive-background: rgb(23, 27, 43);
+    --exclusive-bg-alt: rgb(17, 21, 37);
 }
 
 
