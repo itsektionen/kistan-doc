@@ -1,0 +1,396 @@
+{
+    "formatVersion": 1,
+    "fixtureTypes": {
+        "wallSpotPAR64": {
+            "chLength": 7,
+            "displayName": "PAR64 Wall Spot"
+        },
+        "RGBColor": {
+            "chLength": 3,
+            "displayName": "RGB Color"
+        },
+        "BrightnessChannel": {
+            "chLength": 1,
+            "displayName": "Brightness",
+            "displayNamePlural": "Brightnesses"
+        },
+        "UnknownTypeUINT8": {
+            "chLength": 1,
+            "displayName": "Single Byte",
+            "displayNamePlural": "Single Bytes"
+        },
+        "movingHead_iMove5S": {
+            "chLength": 5,
+            "displayName": "Moving Head iMove 5S",
+            "model": "iMove 5S"
+        },
+        "dmxRelay": {
+            "chLength": 3,
+            "displayName": "DMX Relay",
+            "displayNamePlural": "DMX Relays"
+        },
+        "dmxRelayTriplet": {
+            "chLength": 3,
+            "displayName": "DMX Triple Relay",
+            "displayNamePlural": "DMX Triple Relays"
+        },
+        "washVarytec715": {
+            "chLength": 16,
+            "displayName": "Wash",
+            "displayNamePlural": "Washes",
+            "model": "Varytec Hero Wash 715 HEX LED"
+        }
+    },
+    "fixtures": {
+        "wallSpotPAR64": {
+            "type": "wallSpotPAR64",
+            "fixtureChannels": {
+                "lamp1": 1,
+                "lamp2": 8,
+                "lamp3": 15,
+                "lamp4": 22,
+                "lamp5": 29,
+                "lamp6": 36,
+                "lamp7": 43,
+                "lamp8": 50,
+                "lamp9": 57,
+                "lamp11": 64,
+                "lamp12": 71,
+                "lamp13": 78
+            },
+            "displayName": "Wall spot",
+            "displayNamePlural": "Wall spots",
+            "model": "PAR64"
+        },
+        "barStrips": {
+            "type": "RGBColor",
+            "fixtureChannels": {
+                "bar1": 128,
+                "bar2": 131,
+                "bar3": 134,
+                "bar4": 137
+            },
+            "displayName": "BAR LED Strip",
+            "displayNamePlural": "BAR LED Strips",
+            "model": "SMD5050 LED with 3ch controller"
+        },
+        "kylar": {
+            "type": "BrightnessChannel",
+            "fixtureChannels": {
+                "kyl1": 143,
+                "kyl2": 144,
+                "kyl3": 145,
+                "kyl4": 146,
+                "kyl5": 147,
+                "kyl6": 148,
+                "kyl7": 151,
+                "kyl8": 154
+            }
+        },
+        "hyllor": {
+            "type": "BrightnessChannel",
+            "fixtureChannels": {
+                "hylla1": 152,
+                "hylla2": 153,
+                "hylla3": 149,
+                "hylla4": 150
+            }
+        },
+        "microwaves": {
+            "type": "RGBColor",
+            "fixtureChannels": {
+                "micro1": 140
+            }
+        },
+        "box": {
+            "type": "RGBColor",
+            "fixtureChannels": {
+                "box": 161
+            }
+        },
+        "moving_heads": {
+            "type": "movingHead_iMove5S",
+            "fixtureChannels": {
+                "moving_head1": 200,
+                "moving_head2": 205,
+                "moving_head3": 210,
+                "moving_head4": 205
+            }
+        },
+        "killers": {
+            "type": "dmxRelayTriplet",
+            "fixtureChannels": {
+                "killer": 3,
+                "wash_killer": 3
+            }
+        },
+        "spots": {
+            "type": "BrightnessChannel",
+            "fixtureChannels": {
+                "spot1": 180,
+                "spot2": 181,
+                "spot3": 182,
+                "spot4": 183
+            }
+        },
+        "sound_relays": {
+            "type": "dmxRelay",
+            "fixtureChannels": {
+                "relay_vita": 225,
+                "relay_bas": 223,
+                "relay_dansgolv": 224,
+                "relay_silvriga": 221
+            }
+        },
+        "pling": {
+            "type": "UnknownTypeUINT8",
+            "fixtureChannels": {
+                "pling": 156
+            }
+        },
+        "washes": {
+            "type": "washVarytec715",
+            "fixtureChannels": {
+                "wash1": 257,
+                "wash2": 273,
+                "wash3": 289,
+                "wash4": 305,
+                "wash5": 321,
+                "wash6": 337,
+                "wash7": 353,
+                "wash8": 369,
+                "wash9": 385,
+                "wash10": 401,
+                "wash11": 417,
+                "wash12": 433,
+                "wash13": 449,
+                "wash14": 465,
+                "wash15": 481,
+                "wash16": 497
+            }
+        }
+    },
+    "fixtureGroups": {
+        "lamps": {
+            "fixtures": [
+                "lamp1",
+                "lamp2",
+                "lamp3",
+                "lamp4",
+                "lamp5",
+                "lamp6",
+                "lamp7",
+                "lamp8",
+                "lamp9",
+                "lamp11",
+                "lamp12",
+                "lamp13"
+            ],
+            "description": "All of the wallspots"
+        },
+        "odd": {
+            "fixtures": [
+                "lamp1",
+                "lamp3",
+                "lamp5",
+                "lamp7",
+                "lamp9",
+                "lamp11",
+                "lamp13"
+            ],
+            "description": "The even wallspots"
+        },
+        "even": {
+            "fixtures": [
+                "lamp2",
+                "lamp4",
+                "lamp6",
+                "lamp8",
+                "lamp12"
+            ],
+            "description": "The odd wallspots"
+        },
+        "dance_wall": {
+            "fixtures": [
+                "lamp11",
+                "lamp12",
+                "lamp13"
+            ],
+            "description": "Wallspots on the dance wall"
+        },
+        "bar": {
+            "fixtures": [
+                "bar1",
+                "bar2",
+                "bar3",
+                "bar4"
+            ]
+        },
+        "kylar": {
+            "fixtures": [
+                "kyl1",
+                "kyl2",
+                "kyl3",
+                "kyl4",
+                "kyl5",
+                "kyl6",
+                "kyl7",
+                "kyl8"
+            ],
+            "english": "refrigerators"
+        },
+        "hyllor": {
+            "fixtures": [
+                "kyl1",
+                "kyl2",
+                "kyl3",
+                "kyl4",
+                "kyl5",
+                "kyl6",
+                "kyl7",
+                "kyl8"
+            ],
+            "english": "shelves"
+        },
+        "all_list": {
+            "fixtures": [
+                "bar",
+                "micro1",
+                "box"
+            ]
+        },
+        "moving_heads": {
+            "fixtures": [
+                "moving_head1",
+                "moving_head2",
+                "moving_head3",
+                "moving_head4"
+            ]
+        },
+        "spot": {
+            "fixtures": [
+                "spot1",
+                "spot2",
+                "spot3",
+                "spot4"
+            ]
+        },
+        "relay_sound": {
+            "fixtures": [
+                "relay_vita",
+                "relay_bas",
+                "relay_dansgolv",
+                "relay_silvriga"
+            ]
+        },
+        "all": {
+            "fixtures": [
+                "lamps",
+                "all_list",
+                "box"
+            ]
+        },
+        "washes": {
+            "fixtures": [
+                "wash1",
+                "wash2",
+                "wash3",
+                "wash4",
+                "wash5",
+                "wash6",
+                "wash7",
+                "wash8",
+                "wash9",
+                "wash10",
+                "wash11",
+                "wash12",
+                "wash13",
+                "wash14",
+                "wash15",
+                "wash16"
+            ]
+        },
+        "wash_left": {
+            "fixtures": [
+                "wash1",
+                "wash3",
+                "wash5",
+                "wash7",
+                "wash9",
+                "wash11"
+            ]
+        },
+        "wash_right": {
+            "fixtures": [
+                "wash2",
+                "wash4",
+                "wash6",
+                "wash8",
+                "wash10",
+                "wash12"
+            ]
+        },
+        "wash_gasque": {
+            "fixtures": [
+                "wash1",
+                "wash2",
+                "wash3",
+                "wash4",
+                "wash5",
+                "wash6",
+                "wash7",
+                "wash8",
+                "wash9",
+                "wash10",
+                "wash11",
+                "wash12"
+            ]
+        },
+        "wash_row1": {
+            "fixtures": [
+                "wash1",
+                "wash2"
+            ]
+        },
+        "wash_row2": {
+            "fixtures": [
+                "wash3",
+                "wash4"
+            ]
+        },
+        "wash_row3": {
+            "fixtures": [
+                "wash5",
+                "wash6"
+            ]
+        },
+        "wash_row4": {
+            "fixtures": [
+                "wash7",
+                "wash8"
+            ]
+        },
+        "wash_row5": {
+            "fixtures": [
+                "wash9",
+                "wash10"
+            ]
+        },
+        "wash_row6": {
+            "fixtures": [
+                "wash11",
+                "wash12"
+            ]
+        },
+        "wash_rows": {
+            "fixtures": [
+                "wash_row1",
+                "wash_row2",
+                "wash_row3",
+                "wash_row4",
+                "wash_row5",
+                "wash_row6"
+            ]
+        }
+    }
+}
