@@ -22,11 +22,40 @@ An input can be created to bind an incoming UDP stream to layer data.
 ### Layers
 
 A layer is the base for data storage and manipulation. A layer can be combined
-with another layer using mathematical operations. An output can be bound to a
-layer so that every render of the layer is sent to that output.
+with another layer using mathematical operations. Layers can be stacked and
+nested. It is quite similar to how image editing programs use layers.
+
+An output can be bound to a layer so that every render of the layer is sent 
+to that output.
 
 It is also possible to create layers from inputs. This can be used to add remote
 sources of color information from other programs.
+
+<ExclusiveTo exclusiveTo="LMixer">
+
+### Alpha-Data Layers
+An Alpha-Data Layer works the same as a normal layer, except for the fact that it
+has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
+effect, when the alpha is 1, this layer fully overrides whatever is below it in
+the layer order.
+
+The alpha can be set on a per channel basis, this is done by accessing the layers
+`alpha` property. This is another layer which can be altered in the same way as
+other layers (i.e. `lay.alpha:add(...)`).
+
+:::note
+Even if the alpha is zero, effects are still executed.
+
+For [set](scripting.html#set) and [dim](scripting.html#dim), the new data is
+calculated, but does not take effect until the alpha is set to a non-zero value.
+
+For [execute](scripting.html#execute), [run](scripting.html#run), 
+[play](scripting.html#play), and [stop_play](scripting.html#stop_play), since
+they do not effect the data anyway, they are executed exactly like normal,
+regardless of the alpha.
+:::
+
+</ExclusiveTo>
 
 ### Fixtures
 

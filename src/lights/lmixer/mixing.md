@@ -45,3 +45,44 @@ intensity going down"
 
 [fade_on_off]: ./images/fade_on_off.png "A fade between blue and red with 
 another layer creating on/off pattern"
+
+<ExclusiveTo exclusiveTo="LMixer">
+
+## Alpha-data layer scripting
+
+If you have a base script loop, but want to a temporary jingle or similar, then
+placing the jingle on a seperate layer (`jingle` in the example) allows for the
+jingle to return the base script afterwards.
+
+***Example:*** take control of the washes, lamps, the microwaves, and box lights.
+After 30 seconds release the control.
+```lua
+local ownedFixtures = {washes, lamps, micro1, box};
+
+-- Set the "starting state" of the fixtures
+jingle:add(0, set(box, 255, 0, 255))
+-- ETC. for the rest of the fixtures
+
+jingle:add(100, take_control_of_fixture(ownedFixtures, 1000))
+
+-- BUNCH OF CODE
+
+jingle:add(30000, release_control_of_fixture(ownedFixtures, 1000))
+```
+
+`take_control_of_fixture` and `release_control_of_fixture` do not have to be in the
+same script. For instance, to make the DJ floor situation described in 
+[Multi-layer scripting](#multi-layer-scripting), having a `dj` layer, taking
+control of the fixtures is done in a start script and releasing control in an end script.
+
+***Example:*** Multi-script layer control:
+```lua
+-- DJ_Start
+dj:add(0, take_control_of_fixture(djFixtures, 1000))
+```
+```lua
+-- DJ_Stop
+dj:add(0, release_control_of_fixture(djFixtures, 1000))
+```
+
+</ExclusiveTo>
