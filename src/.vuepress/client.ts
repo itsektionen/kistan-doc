@@ -1,9 +1,9 @@
 import { defineClientConfig } from 'vuepress/client'
-import KistanExclusive from './components/kistanExclusive.vue';
+import ExclusiveTo from './components/ExclusiveTo.vue';
 
 export default defineClientConfig({
   enhance({ app, router, siteData }) {
-    app.component('KistanExclusive', KistanExclusive)
+    app.component('ExclusiveTo', ExclusiveTo)
   },
   setup() {},
   layouts: {},

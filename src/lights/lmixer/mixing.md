@@ -46,7 +46,7 @@ intensity going down"
 [fade_on_off]: ./images/fade_on_off.png "A fade between blue and red with 
 another layer creating on/off pattern"
 
-<KistanExclusive lmixer="true">
+<ExclusiveTo exclusiveTo="LMixer">
 
 ## Alpha-data layer scripting
 
@@ -85,4 +85,4 @@ dj:add(0, take_control_of_fixture(djFixtures, 1000))
 dj:add(0, release_control_of_fixture(djFixtures, 1000))
 ```
 
-</KistanExclusive>
+</ExclusiveTo>

@@ -31,7 +31,7 @@ to that output.
 It is also possible to create layers from inputs. This can be used to add remote
 sources of color information from other programs.
 
-<KistanExclusive lmixer="true">
+<ExclusiveTo exclusiveTo="LMixer">
 
 ### Alpha-Data Layers
 An Alpha-Data Layer works the same as a normal layer, except for the fact that it
@@ -55,7 +55,7 @@ they do not effect the data anyway, they are executed exactly like normal,
 regardless of the alpha.
 :::
 
-</KistanExclusive>
+</ExclusiveTo>
 
 ### Fixtures
 

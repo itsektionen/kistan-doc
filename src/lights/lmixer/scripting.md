@@ -31,7 +31,7 @@ is 1.
 dimmer = layer(master, mul, 512, 1)
 ```
 
-<KistanExclusive lmixer="true">
+<ExclusiveTo exclusiveTo="LMixer">
 
 ### Create alpha-data layer
 
@@ -82,7 +82,7 @@ In this case, direct alpha access makes since, however, in general taking contro
 fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
 [release_control_of_fixture](#release-control-of-fixture) should be used.
 :::
-</KistanExclusive>
+</ExclusiveTo>
 
 ### `output`
 
@@ -348,7 +348,7 @@ Stop playback of all sound files. No parameters.
 ```lua
 stop_play()
 ```
-<KistanExclusive>
+<ExclusiveTo exclusiveTo="LMixer">
 
 ### `take_control_of_fixture`
 
@@ -394,6 +394,6 @@ The "take control" and "release control" terminology can be slightly confusing
 when it comes to priority. The priority is ***always*** whatever is latest in
 the layer order (the order that layers are added as children).
 :::
-</KistanExclusive>
+</ExclusiveTo>
 
 [1]: https://en.wikipedia.org/wiki/Art-Net
