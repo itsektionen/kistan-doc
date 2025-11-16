@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
 import { type FixtureTypeSchema } from './fixtureConfigSchema';
 
 const props = defineProps<{
     fixtureType: FixtureTypeSchema,
-    fixtureTypeID: string
+    fixtureTypeId: string
 }>();
 </script>
 
 <template>
-    <h3 :id="fixtureTypeID">{{ fixtureType.displayName }}</h3>
+    <SpoofedH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</SpoofedH3>
     <template v-if="fixtureType.model"><b>Model: </b>{{ fixtureType.model }}</template>
     <table>
         <thead>

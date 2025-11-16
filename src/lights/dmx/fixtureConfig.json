@@ -122,7 +122,6 @@
             "displayName": "PAR64 Wall Spot"
         },
         "RGBColor": {
-            
             "channels": {
                 "1": {
                     "id": "colRed",
@@ -162,7 +161,6 @@
         "movingHead_iMove5S": {
             "displayName": "Moving Head iMove 5S",
             "model": "iMove 5S",
-            
             "channels": {
                 "1": {
                     "id": "tilt",
@@ -312,7 +310,6 @@
                 "7": {
                     "id": "strobe",
                     "displayName": "Shutter (strobe)",
-                    
                     "rangedFunction": [
                         {
                             "min": 0,
@@ -368,7 +365,7 @@
                     "id": "colTemperature",
                     "displayName": "Color Temperature"
                 },
-                "15": {                    
+                "15": {
                     "id": "colorMacro",
                     "displayName": "Color Macro",
                     "rangedFunction": [
@@ -547,7 +544,7 @@
                         }
                     ]
                 },
-                "16": {                    
+                "16": {
                     "id": "program",
                     "displayName": "Auto Program",
                     "rangedFunction": [
@@ -676,7 +673,9 @@
                 "kyl6": 148,
                 "kyl7": 151,
                 "kyl8": 154
-            }
+            },
+            "displayName": "Refrigerator",
+            "description": "Refrigerators in the bar"
         },
         "hyllor": {
             "type": "BrightnessChannel",
@@ -685,19 +684,26 @@
                 "hylla2": 153,
                 "hylla3": 149,
                 "hylla4": 150
-            }
+            },
+            "displayName": "Shelf",
+            "displayNamePlural": "Shelves",
+            "description": "The shelves in the bar"
         },
         "microwaves": {
             "type": "RGBColor",
             "fixtureChannels": {
                 "micro1": 140
-            }
+            },
+            "displayName": "Microwave",
+            "description": "The light above the microwaves"
         },
         "box": {
             "type": "RGBColor",
             "fixtureChannels": {
                 "box": 161
-            }
+            },
+            "displayName": "Box",
+            "description": "The box next to the bar"
         },
         "moving_heads": {
             "type": "movingHead_iMove5S",
@@ -706,14 +712,16 @@
                 "moving_head2": 205,
                 "moving_head3": 210,
                 "moving_head4": 205
-            }
+            },
+            "displayName": "Moving Head"
         },
         "killers": {
             "type": "dmxRelayTriplet",
             "fixtureChannels": {
                 "killer": 3,
                 "wash_killer": 3
-            }
+            },
+            "displayName": "Relay killer"
         },
         "spots": {
             "type": "BrightnessChannel",
@@ -722,7 +730,8 @@
                 "spot2": 181,
                 "spot3": 182,
                 "spot4": 183
-            }
+            },
+            "displayName": "Spot"
         },
         "sound_relays": {
             "type": "dmxRelay",
@@ -731,13 +740,16 @@
                 "relay_bas": 223,
                 "relay_dansgolv": 224,
                 "relay_silvriga": 221
-            }
+            },
+            "displayName": "Sound Relay"
         },
         "pling": {
             "type": "UnknownTypeUINT8",
             "fixtureChannels": {
                 "pling": 156
-            }
+            },
+            "displayName": "Pling",
+            "description": "The red light for pling?"
         },
         "washes": {
             "type": "washVarytec715",
@@ -758,7 +770,10 @@
                 "wash14": 465,
                 "wash15": 481,
                 "wash16": 497
-            }
+            },
+            "displayName": "Wash",
+            "displayNamePlural": "Washes"
+            
         }
     },
     "fixtureGroups": {

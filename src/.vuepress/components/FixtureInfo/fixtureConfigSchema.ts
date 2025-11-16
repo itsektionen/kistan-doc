@@ -37,13 +37,14 @@ export const fixtureSchema = z.object({
     displayName: z.optional(z.string()),
     displayNamePlural: z.optional(z.string()),
     model: z.optional(z.string()),
+    description: z.optional(z.string())
 });
 export type FixtureSchema = z.infer<typeof fixtureSchema>;
 export const fixtureGroupSchema = z.object({
     fixtures: z.array(z.string()),
     description: z.optional(z.string())
 });
-export type FixtureConfigSchema = z.infer<typeof fixtureConfigSchema>;
+export type FixtureGroupSchema = z.infer<typeof fixtureGroupSchema>;
 export const fixtureConfigSchema = z.object({
     formatVersion: z.number(),
     fixtureTypes: z.record(z.string(),

@@ -3,6 +3,9 @@ import { onMounted, reactive, ref, Ref } from "vue";
 import * as z from "zod";
 import { currentFormatVersion, FixtureConfig, fixtureConfigSchema } from "./fixtureConfigSchema";
 import FixtureType from "./FixtureType.vue";
+import FixtureInfo from "./FixtureInfo.vue";
+import SpoofedH2 from "../ThemeComponents/SpoofedH2.vue";
+import FixtureGroup from "./FixtureGroup.vue";
 
 enum ProgressStatuses {
     StartingLoad,
@@ -61,12 +64,18 @@ onMounted(() => {
         {{ errorMessage }}
     </template>
     <template v-else-if="progressStatus == ProgressStatuses.LoadComplete">
-        <h2 id="fixture-types">Fixture Types</h2>
-        <FixtureType v-for="(fixtureType, fixtureTypeKey) in parsedData?.fixtureTypes" 
-        :fixture-type="fixtureType" :fixture-type-i-d="fixtureTypeKey">
+        <SpoofedH2 id="fixture-types">Fixture Types</SpoofedH2>
+        <FixtureType v-for="(fixtureType, fixtureTypeKey) in parsedData?.fixtureTypes" :fixture-type="fixtureType"
+            :fixture-type-id="fixtureTypeKey">
         </FixtureType>
-        <h2>Fixtures</h2>
-        <h2>Fixture Groups</h2>
+        <SpoofedH2 id="fixtures">Fixtures</SpoofedH2>
+        <FixtureInfo v-for="(fixtureInfo, fixtureInfokey) in parsedData?.fixtures" 
+        :fixture-info="fixtureInfo" :fixture-info-id="fixtureInfokey" :fixture-type="parsedData?.fixtureTypes[fixtureInfo.type]">
+        </FixtureInfo>
+        <SpoofedH2 id="fixture-groups">Fixture Groups</SpoofedH2>
+        <FixtureGroup v-for="(fixtureGroup, luaName) in parsedData?.fixtureGroups"
+        :fixture-group="fixtureGroup" :lua-name="luaName">
+        </FixtureGroup>
     </template>
     <template v-else>
         INVALID LOADING STATE
