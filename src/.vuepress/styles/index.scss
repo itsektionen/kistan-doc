@@ -1,12 +1,16 @@
+
 .home .hero img {
   max-width: 450px !important
 }
 
 :root {
   --vp-c-text: #2A294B;
-  --vp-c-accent: #403050
+  --vp-c-accent: #8818f8;
+  --vp-c-accent-bg: #ca95ff;
 }
 
 [data-theme='dark'] {
   --vp-c-text: #E2E2F8;
+  --vp-c-accent: #b469ff;
+  --vp-c-accent-bg: #b469ff;
 }
