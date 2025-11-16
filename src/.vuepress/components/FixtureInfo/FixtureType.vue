@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
-import { type FixtureTypeSchema } from './fixtureConfigSchema';
-import * as fixtureConfig from "../../public/fixtureConfig.json"
+
+import * as fixtureConfigUnknown from "../../public/fixtureConfig.json";
+import { FixtureConfig, FixtureTypeSchema } from './fixtureConfigSchema';
+const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 
 </script>
 

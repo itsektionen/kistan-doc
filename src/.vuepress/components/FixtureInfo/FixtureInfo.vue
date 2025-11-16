@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
-import * as fixtureConfig from "../../public/fixtureConfig.json"
-import { FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
-
+import * as fixtureConfigUnknown from "../../public/fixtureConfig.json"
+import { FixtureConfig, FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
+const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 
 function GetDisplayName(fixtureInfo: FixtureSchema) {
     let displayName = fixtureInfo.displayName;
@@ -16,7 +16,7 @@ function GetDisplayName(fixtureInfo: FixtureSchema) {
     return displayName;
 }
 function GetFixtureType(fixtureInfo: FixtureSchema) {
-    return (fixtureConfig.fixtureTypes as Record<string, FixtureTypeSchema>)[fixtureInfo.type]
+    return (fixtureConfig.fixtureTypes)[fixtureInfo.type]
 }
 function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
     return Object.keys((fixtureType?.channels ?? {})).length;

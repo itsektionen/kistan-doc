@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
-import { FixtureGroupSchema } from './fixtureConfigSchema';
-
-import * as fixtureConfig from "../../public/fixtureConfig.json"
+import * as fixtureConfigUnknown from "../../public/fixtureConfig.json";
+import { FixtureConfig, FixtureGroupSchema } from './fixtureConfigSchema';
+const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 </script>
 <template>
     <template v-for="(fixtureGroup, luaName) in (fixtureConfig.fixtureGroups as Record<string, FixtureGroupSchema>)">

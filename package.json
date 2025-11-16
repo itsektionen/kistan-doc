@@ -22,8 +22,5 @@
     "vue": "3.5.12",
     "vuepress": "^2.0.0-rc.24",
     "vuepress-plugin-serve": "2.0.4"
-  },
-  "dependencies": {
-    "zod": "^4.1.12"
   }
 }
