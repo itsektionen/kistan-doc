@@ -6,6 +6,8 @@ const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 
 defineProps<{
     relativePathToFixtureType: string,
+    fixtureInfoId: string,
+    fixtureInfo: FixtureSchema
 }>()
 
 function GetDisplayName(fixtureInfo: FixtureSchema) {
@@ -27,7 +29,6 @@ function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
 }
 </script>
 <template>
-    <template v-for="(fixtureInfo, fixtureInfoId) in (fixtureConfig.fixtures as Record<string, FixtureSchema>)">
         <AnchoredH3 :id="'fixture-info-' + fixtureInfoId">{{ GetDisplayName(fixtureInfo) }}</AnchoredH3>
         <b>Fixture Type:</b> <a :href="relativePathToFixtureType + '#fixture-type-' + fixtureInfo.type">{{
             GetFixtureType(fixtureInfo)?.displayName }}</a>
@@ -61,5 +62,4 @@ function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
                 </tr>
             </tbody>
         </table>
-    </template>
 </template>

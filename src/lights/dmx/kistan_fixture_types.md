@@ -1,2 +1,2 @@
 # Fixture Types in Kistan
-<FixtureType></FixtureType>
+<FixtureTypes></FixtureTypes>

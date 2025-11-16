@@ -1,6 +1,6 @@
 # Fixtures in Kistan's LMixer
 ## Fixtures
-<FixtureInfo relativePathToFixtureType="kistan_fixture_types.html"></FixtureInfo>
+<FixtureInfos relativePathToFixtureType="kistan_fixture_types.html"></FixtureInfos>
 
 ## Fixture Groups
-<FixtureGroup relativePathToFixtureInfo=""></FixtureGroup>
+<FixtureGroups relativePathToFixtureInfo=""></FixtureGroups>
