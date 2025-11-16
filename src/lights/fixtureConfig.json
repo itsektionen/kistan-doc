@@ -1,310 +1,7 @@
 {
     "formatVersion": 1,
     "fixtureTypes": {
-        "wallspot_PAR64": {
-            "model": "PAR64",
-            "channels": {
-                "1": {
-                    "id": "col_red",
-                    "displayName": "Red"
-                },
-                "2": {
-                    "id": "col_green",
-                    "displayName": "Green"
-                },
-                "3": {
-                    "id": "col_blue",
-                    "displayName": "Blue"
-                },
-                "4": {
-                    "id": "prog_macro",
-                    "displayName": "Macro",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 7,
-                            "functionID": "disabled",
-                            "displayName": "Off",
-                            "identicalWithinRange": true
-                        },
-                        {
-                            "min": 8,
-                            "max": 255,
-                            "functionID": "set",
-                            "displayName": "Macro"
-                        }
-                    ]
-                },
-                "5": {
-                    "id": "strobe",
-                    "displayName": "Strobe",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 15,
-                            "functionID": "disabled",
-                            "displayName": "Off",
-                            "identicalWithinRange": true
-                        },
-                        {
-                            "min": 16,
-                            "max": 255,
-                            "functionID": "set",
-                            "displayName": "Strobe speed"
-                        }
-                    ]
-                },
-                "6": {
-                    "id": "mode",
-                    "displayName": "Mode",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 0,
-                            "functionID": "disabled",
-                            "displayName": "Off",
-                            "identicalWithinRange": true
-                        },
-                        {
-                            "min": 1,
-                            "max": 31,
-                            "functionID": "color",
-                            "displayName": "Color"
-                        },
-                        {
-                            "min": 32,
-                            "max": 63,
-                            "functionID": "fade_out",
-                            "displayName": "Fade Out"
-                        },
-                        {
-                            "min": 64,
-                            "max": 95,
-                            "functionID": "fade_in",
-                            "displayName": "Fade In"
-                        },
-                        {
-                            "min": 96,
-                            "max": 127,
-                            "functionID": "fade_inout",
-                            "displayName": "Fade In/Out"
-                        },
-                        {
-                            "min": 128,
-                            "max": 129,
-                            "functionID": "automix",
-                            "displayName": "Auto Mix"
-                        },
-                        {
-                            "min": 160,
-                            "max": 191,
-                            "functionID": "color_chase_3",
-                            "displayName": "3 Color Chase"
-                        },
-                        {
-                            "min": 192,
-                            "max": 223,
-                            "functionID": "color_chase_7",
-                            "displayName": "7 Color Chase"
-                        },
-                        {
-                            "min": 224,
-                            "max": 225,
-                            "functionID": "sound_sensitive",
-                            "displayName": "Sound"
-                        }
-                    ]
-                },
-                "7": {
-                    "id": "dimmer",
-                    "displayName": "Dimmer"
-                }
-            },
-            "displayName": "PAR64 Wall Spot"
-        },
-        "moving_head_iMove5S": {
-            "displayName": "Moving Head iMove 5S",
-            "model": "iMove 5S",
-            "channels": {
-                "1": {
-                    "id": "tilt",
-                    "displayName": "Tilt",
-                    "mapRangeForDisplay": {
-                        "min": 0,
-                        "max": 540
-                    }
-                },
-                "2": {
-                    "id": "pan",
-                    "displayName": "Pan",
-                    "mapRangeForDisplay": {
-                        "min": -135,
-                        "max": 135
-                    }
-                },
-                "3": {
-                    "id": "shutter",
-                    "displayName": "Shutter",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 7,
-                            "functionID": "blackout",
-                            "displayName": "Blackout",
-                            "identicalWithinRange": true
-                        },
-                        {
-                            "min": 8,
-                            "max": 15,
-                            "functionID": "off",
-                            "displayName": "Open",
-                            "identicalWithinRange": true
-                        },
-                        {
-                            "min": 16,
-                            "max": 131,
-                            "functionID": "shutter",
-                            "displayName": "Shutter"
-                        },
-                        {
-                            "min": 132,
-                            "max": 247,
-                            "functionID": "shaking_speed",
-                            "displayName": "Shaking speed"
-                        },
-                        {
-                            "min": 248,
-                            "max": 255,
-                            "functionID": "disabled",
-                            "displayName": "Open",
-                            "identicalWithinRange": true
-                        }
-                    ]
-                },
-                "4": {
-                    "id": "gobo",
-                    "displayName": "Gobo (pattern)",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 127,
-                            "functionID": "gobo_steps",
-                            "displayName": "Gobo steps"
-                        },
-                        {
-                            "min": 128,
-                            "max": 255,
-                            "functionID": "gobo_change_speed",
-                            "displayName": "Speed gobo change"
-                        }
-                    ]
-                },
-                "5": {
-                    "id": "prog_color",
-                    "displayName": "Color",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 127,
-                            "functionID": "color_steps",
-                            "displayName": "Color steps"
-                        },
-                        {
-                            "min": 128,
-                            "max": 255,
-                            "functionID": "color_change_speed",
-                            "displayName": "Speed color change"
-                        }
-                    ]
-                }
-            }
-        },
-        "dmx_relay": {
-            "channels": {
-                "1": {
-                    "id": "relay",
-                    "displayName": "Relay",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 0,
-                            "functionID": "off",
-                            "displayName": "Off"
-                        },
-                        {
-                            "min": 255,
-                            "max": 255,
-                            "functionID": "on",
-                            "displayName": "On"
-                        }
-                    ]
-                }
-            },
-            "displayName": "DMX Relay",
-            "displayNamePlural": "DMX Relays"
-        },
-        "dmx_relay_triplet": {
-            "channels": {
-                "1": {
-                    "id": "relay_1",
-                    "displayName": "Relay 1",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 0,
-                            "functionID": "off",
-                            "displayName": "Off"
-                        },
-                        {
-                            "min": 255,
-                            "max": 255,
-                            "functionID": "on",
-                            "displayName": "On"
-                        }
-                    ]
-                },
-                "2": {
-                    "id": "relay_2",
-                    "displayName": "Relay 2",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 0,
-                            "functionID": "off",
-                            "displayName": "Off"
-                        },
-                        {
-                            "min": 255,
-                            "max": 255,
-                            "functionID": "on",
-                            "displayName": "On"
-                        }
-                    ]
-                },
-                "3": {
-                    "id": "relay_3",
-                    "displayName": "Relay 3",
-                    "rangedFunction": [
-                        {
-                            "min": 0,
-                            "max": 0,
-                            "functionID": "off",
-                            "displayName": "Off"
-                        },
-                        {
-                            "min": 255,
-                            "max": 255,
-                            "functionID": "on",
-                            "displayName": "On"
-                        }
-                    ]
-                }
-            },
-            "displayName": "DMX Triple Relay",
-            "displayNamePlural": "DMX Triple Relays",
-            "description": "One for killing part of DMX run between Washes and Moving heads (causes free mode)."
-        },
-        "wash_Varytec715": {
+                "wash_Varytec715": {
             "displayName": "Wash",
             "displayNamePlural": "Washes",
             "model": "Varytec Hero Wash 715 HEX LED",
@@ -664,6 +361,309 @@
                 }
             }
         },
+        "wallspot_PAR64": {
+            "model": "PAR64",
+            "channels": {
+                "1": {
+                    "id": "col_red",
+                    "displayName": "Red"
+                },
+                "2": {
+                    "id": "col_green",
+                    "displayName": "Green"
+                },
+                "3": {
+                    "id": "col_blue",
+                    "displayName": "Blue"
+                },
+                "4": {
+                    "id": "prog_macro",
+                    "displayName": "Macro",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 7,
+                            "functionID": "disabled",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 8,
+                            "max": 255,
+                            "functionID": "set",
+                            "displayName": "Macro"
+                        }
+                    ]
+                },
+                "5": {
+                    "id": "strobe",
+                    "displayName": "Strobe",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 15,
+                            "functionID": "disabled",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 16,
+                            "max": 255,
+                            "functionID": "set",
+                            "displayName": "Strobe speed"
+                        }
+                    ]
+                },
+                "6": {
+                    "id": "mode",
+                    "displayName": "Mode",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "disabled",
+                            "displayName": "Off",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 1,
+                            "max": 31,
+                            "functionID": "color",
+                            "displayName": "Color"
+                        },
+                        {
+                            "min": 32,
+                            "max": 63,
+                            "functionID": "fade_out",
+                            "displayName": "Fade Out"
+                        },
+                        {
+                            "min": 64,
+                            "max": 95,
+                            "functionID": "fade_in",
+                            "displayName": "Fade In"
+                        },
+                        {
+                            "min": 96,
+                            "max": 127,
+                            "functionID": "fade_inout",
+                            "displayName": "Fade In/Out"
+                        },
+                        {
+                            "min": 128,
+                            "max": 129,
+                            "functionID": "automix",
+                            "displayName": "Auto Mix"
+                        },
+                        {
+                            "min": 160,
+                            "max": 191,
+                            "functionID": "color_chase_3",
+                            "displayName": "3 Color Chase"
+                        },
+                        {
+                            "min": 192,
+                            "max": 223,
+                            "functionID": "color_chase_7",
+                            "displayName": "7 Color Chase"
+                        },
+                        {
+                            "min": 224,
+                            "max": 225,
+                            "functionID": "sound_sensitive",
+                            "displayName": "Sound"
+                        }
+                    ]
+                },
+                "7": {
+                    "id": "dimmer",
+                    "displayName": "Dimmer"
+                }
+            },
+            "displayName": "PAR64 Wall Spot"
+        },
+        "moving_head_iMove5S": {
+            "displayName": "Moving Head iMove 5S",
+            "model": "iMove 5S",
+            "channels": {
+                "1": {
+                    "id": "tilt",
+                    "displayName": "Tilt",
+                    "mapRangeForDisplay": {
+                        "min": 0,
+                        "max": 540
+                    }
+                },
+                "2": {
+                    "id": "pan",
+                    "displayName": "Pan",
+                    "mapRangeForDisplay": {
+                        "min": -135,
+                        "max": 135
+                    }
+                },
+                "3": {
+                    "id": "shutter",
+                    "displayName": "Shutter",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 7,
+                            "functionID": "blackout",
+                            "displayName": "Blackout",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 8,
+                            "max": 15,
+                            "functionID": "off",
+                            "displayName": "Open",
+                            "identicalWithinRange": true
+                        },
+                        {
+                            "min": 16,
+                            "max": 131,
+                            "functionID": "shutter",
+                            "displayName": "Shutter"
+                        },
+                        {
+                            "min": 132,
+                            "max": 247,
+                            "functionID": "shaking_speed",
+                            "displayName": "Shaking speed"
+                        },
+                        {
+                            "min": 248,
+                            "max": 255,
+                            "functionID": "disabled",
+                            "displayName": "Open",
+                            "identicalWithinRange": true
+                        }
+                    ]
+                },
+                "4": {
+                    "id": "gobo",
+                    "displayName": "Gobo (pattern)",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 127,
+                            "functionID": "gobo_steps",
+                            "displayName": "Gobo steps"
+                        },
+                        {
+                            "min": 128,
+                            "max": 255,
+                            "functionID": "gobo_change_speed",
+                            "displayName": "Speed gobo change"
+                        }
+                    ]
+                },
+                "5": {
+                    "id": "prog_color",
+                    "displayName": "Color",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 127,
+                            "functionID": "color_steps",
+                            "displayName": "Color steps"
+                        },
+                        {
+                            "min": 128,
+                            "max": 255,
+                            "functionID": "color_change_speed",
+                            "displayName": "Speed color change"
+                        }
+                    ]
+                }
+            }
+        },
+        "dmx_relay": {
+            "channels": {
+                "1": {
+                    "id": "relay",
+                    "displayName": "Relay",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                }
+            },
+            "displayName": "DMX Relay",
+            "displayNamePlural": "DMX Relays"
+        },
+        "dmx_relay_triplet": {
+            "channels": {
+                "1": {
+                    "id": "relay_1",
+                    "displayName": "Relay 1",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "2": {
+                    "id": "relay_2",
+                    "displayName": "Relay 2",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "3": {
+                    "id": "relay_3",
+                    "displayName": "Relay 3",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 0,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 255,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                }
+            },
+            "displayName": "DMX Triple Relay",
+            "displayNamePlural": "DMX Triple Relays",
+            "description": "One for killing part of DMX run between Washes and Moving heads (causes free mode)."
+        },
         "rgb_color": {
             "channels": {
                 "1": {
@@ -703,6 +703,29 @@
         }
     },
     "fixtures": {
+        "washes": {
+            "type": "wash_Varytec715",
+            "fixtureChannels": {
+                "wash1": 257,
+                "wash2": 273,
+                "wash3": 289,
+                "wash4": 305,
+                "wash5": 321,
+                "wash6": 337,
+                "wash7": 353,
+                "wash8": 369,
+                "wash9": 385,
+                "wash10": 401,
+                "wash11": 417,
+                "wash12": 433,
+                "wash13": 449,
+                "wash14": 465,
+                "wash15": 481,
+                "wash16": 497
+            },
+            "displayName": "Wash",
+            "displayNamePlural": "Washes"
+        },
         "wallspot_PAR64": {
             "type": "wallspot_PAR64",
             "fixtureChannels": {
@@ -723,6 +746,34 @@
             "displayNamePlural": "Wall spots",
             "model": "PAR64"
         },
+        "moving_heads": {
+            "type": "moving_head_iMove5S",
+            "fixtureChannels": {
+                "moving_head1": 200,
+                "moving_head2": 205,
+                "moving_head3": 210,
+                "moving_head4": 215
+            },
+            "displayName": "Moving Head"
+        },
+        "sound_relays": {
+            "type": "dmx_relay",
+            "fixtureChannels": {
+                "relay_vita": 225,
+                "relay_bas": 223,
+                "relay_dansgolv": 224,
+                "relay_silvriga": 221
+            },
+            "displayName": "Sound Relay"
+        },
+        "killers": {
+            "type": "dmx_relay_triplet",
+            "fixtureChannels": {
+                "killer": 197,
+                "wash_killer": 176
+            },
+            "displayName": "Relay killer"
+        },
         "bar_strips": {
             "type": "rgb_color",
             "fixtureChannels": {
@@ -734,6 +785,33 @@
             "displayName": "BAR LED Strip",
             "displayNamePlural": "BAR LED Strips",
             "model": "SMD5050 LED with 3ch controller"
+        },
+        "microwaves": {
+            "type": "rgb_color",
+            "fixtureChannels": {
+                "micro1": 140
+            },
+            "displayName": "Microwave",
+            "description": "The light above the microwaves"
+        },
+        "box": {
+            "type": "rgb_color",
+            "fixtureChannels": {
+                "box": 161
+            },
+            "displayName": "Box",
+            "description": "The box next to the bar"
+        },
+        "spots": {
+            "type": "brightness_channel",
+            "model": "Botex MPX-4LED Multipack ?",
+            "fixtureChannels": {
+                "spot1": 180,
+                "spot2": 181,
+                "spot3": 182,
+                "spot4": 183
+            },
+            "displayName": "Spot"
         },
         "kylar": {
             "type": "brightness_channel",
@@ -762,61 +840,6 @@
             "displayNamePlural": "Shelves",
             "description": "The shelves in the bar"
         },
-        "microwaves": {
-            "type": "rgb_color",
-            "fixtureChannels": {
-                "micro1": 140
-            },
-            "displayName": "Microwave",
-            "description": "The light above the microwaves"
-        },
-        "box": {
-            "type": "rgb_color",
-            "fixtureChannels": {
-                "box": 161
-            },
-            "displayName": "Box",
-            "description": "The box next to the bar"
-        },
-        "moving_heads": {
-            "type": "moving_head_iMove5S",
-            "fixtureChannels": {
-                "moving_head1": 200,
-                "moving_head2": 205,
-                "moving_head3": 210,
-                "moving_head4": 205
-            },
-            "displayName": "Moving Head"
-        },
-        "killers": {
-            "type": "dmx_relay_triplet",
-            "fixtureChannels": {
-                "killer": 3,
-                "wash_killer": 3
-            },
-            "displayName": "Relay killer"
-        },
-        "spots": {
-            "type": "brightness_channel",
-            "model": "Botex MPX-4LED Multipack ?",
-            "fixtureChannels": {
-                "spot1": 180,
-                "spot2": 181,
-                "spot3": 182,
-                "spot4": 183
-            },
-            "displayName": "Spot"
-        },
-        "sound_relays": {
-            "type": "dmx_relay",
-            "fixtureChannels": {
-                "relay_vita": 225,
-                "relay_bas": 223,
-                "relay_dansgolv": 224,
-                "relay_silvriga": 221
-            },
-            "displayName": "Sound Relay"
-        },
         "pling": {
             "type": "unknown_uint8_t",
             "fixtureChannels": {
@@ -824,29 +847,6 @@
             },
             "displayName": "Pling",
             "description": "The red light for pling?"
-        },
-        "washes": {
-            "type": "wash_Varytec715",
-            "fixtureChannels": {
-                "wash1": 257,
-                "wash2": 273,
-                "wash3": 289,
-                "wash4": 305,
-                "wash5": 321,
-                "wash6": 337,
-                "wash7": 353,
-                "wash8": 369,
-                "wash9": 385,
-                "wash10": 401,
-                "wash11": 417,
-                "wash12": 433,
-                "wash13": 449,
-                "wash14": 465,
-                "wash15": 481,
-                "wash16": 497
-            },
-            "displayName": "Wash",
-            "displayNamePlural": "Washes"
         }
     },
     "fixtureGroups": {

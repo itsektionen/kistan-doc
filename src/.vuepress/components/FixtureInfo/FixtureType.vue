@@ -16,9 +16,12 @@ defineProps<{
     <template v-if="!isDropdown">
         <AnchoredH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</AnchoredH3>
     </template>
-    <template v-if="fixtureType.model"><b>Model: </b>{{ fixtureType.model }}</template>
+    <template v-if="fixtureType.model">
+        <b>Model: </b>{{ fixtureType.model }}</template>
     <template v-if="fixtureType.description">
-        <br />
+        <template v-if="fixtureType.model">
+            <br />
+        </template>
         {{ fixtureType.description }}
     </template>
     <table>

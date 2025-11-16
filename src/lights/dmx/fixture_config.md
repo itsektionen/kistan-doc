@@ -3,7 +3,7 @@
 All fixtures accessable in LMixer should also be in a config file, located [here](../fixtureConfig.json).
 
 :::note
-Currently, the vast majority of the fixtures on the master layer are listed here, other layers are not listed.
+Currently, the nearly all of the fixtures on the master layer are listed here, other layers are not listed.
 :::
 
 This file exists reduce maintenance for future projects. Instead of all of the projects having their own list
