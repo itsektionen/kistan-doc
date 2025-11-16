@@ -163,7 +163,6 @@ export default defineUserConfig({
                     collapsible: false,
                     children: [
                         '/lights/dmx/',
-                        '/lights/dmx/kistan',
                         '/lights/dmx/kistan_fixture_types',
                         '/lights/dmx/kistan_lmixer_fixtures',
                         '/lights/dmx/fixture_config',
