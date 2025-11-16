@@ -7,7 +7,7 @@ let header = "Kistan exclusive!";
 let description = "This content only applies to kistan";
 if (props.lmixer) {
     header = "Kistan's LMixer exclusive";
-    description = "This content only applies to kistan's instance of LMixer. It is likely the case that the the code contained in setup scripts.";
+    description = "This content only applies to kistan's instance of LMixer. It is likely the case that the code is contained in setup scripts.";
 }
 </script>
 <template>
