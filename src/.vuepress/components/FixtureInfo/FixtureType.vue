@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
 
-import * as fixtureConfigUnknown from "../../public/fixtureConfig.json";
+import * as fixtureConfigUnknown from "../../../fixtureConfig.json";
 import { FixtureConfig, FixtureTypeSchema } from './fixtureConfigSchema';
+import AnchoredH3 from '../ThemeComponents/AnchoredH3.vue';
 const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
 
 </script>
 
 <template>
     <template v-for="(fixtureType, fixtureTypeId) in (fixtureConfig.fixtureTypes as Record<string, FixtureTypeSchema>)">
-        <SpoofedH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</SpoofedH3>
+        <AnchoredH3 :id="'fixture-type-' + fixtureTypeId">{{ fixtureType.displayName }}</AnchoredH3>
         <template v-if="fixtureType.model"><b>Model: </b>{{ fixtureType.model }}</template>
         <table>
             <thead>

@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
-import * as fixtureConfigUnknown from "../../public/fixtureConfig.json"
+import * as fixtureConfigUnknown from "../../../fixtureConfig.json";
 import { FixtureConfig, FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
+import AnchoredH3 from '../ThemeComponents/AnchoredH3.vue';
 const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
+
+defineProps<{
+    relativePathToFixtureType: string,
+}>()
 
 function GetDisplayName(fixtureInfo: FixtureSchema) {
     let displayName = fixtureInfo.displayName;
@@ -24,8 +28,9 @@ function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
 </script>
 <template>
     <template v-for="(fixtureInfo, fixtureInfoId) in (fixtureConfig.fixtures as Record<string, FixtureSchema>)">
-        <SpoofedH3 :id="'fixture-info-' + fixtureInfoId">{{ GetDisplayName(fixtureInfo) }}</SpoofedH3>
-        <b>Fixture Type:</b> <a :href="'#fixture-type-' + fixtureInfo.type">{{ GetFixtureType(fixtureInfo)?.displayName }}</a>
+        <AnchoredH3 :id="'fixture-info-' + fixtureInfoId">{{ GetDisplayName(fixtureInfo) }}</AnchoredH3>
+        <b>Fixture Type:</b> <a :href="relativePathToFixtureType + '#fixture-type-' + fixtureInfo.type">{{
+            GetFixtureType(fixtureInfo)?.displayName }}</a>
         <template v-if="fixtureInfo.model">
             <br />
             <b>Model: </b>{{ fixtureInfo.model }}
@@ -37,8 +42,10 @@ function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
 
         <table>
             <thead>
-                <th>Lua Name</th>
-                <th>DMX Channels</th>
+                <tr>
+                    <th>Lua Name</th>
+                    <th>DMX Channels</th>
+                </tr>
             </thead>
             <tbody>
                 <tr v-for="(fixtureChannel, fixtureKey) in fixtureInfo.fixtureChannels">

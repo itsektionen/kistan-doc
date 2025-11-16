@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
-import * as fixtureConfigUnknown from "../../public/fixtureConfig.json";
+import * as fixtureConfigUnknown from "../../../fixtureConfig.json";
 import { FixtureConfig, FixtureGroupSchema } from './fixtureConfigSchema';
+import AnchoredH3 from '../ThemeComponents/AnchoredH3.vue';
 const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
+
+defineProps<{
+    relativePathToFixtureInfo: string
+}>()
+
 </script>
 <template>
     <template v-for="(fixtureGroup, luaName) in (fixtureConfig.fixtureGroups as Record<string, FixtureGroupSchema>)">
-        <SpoofedH3 :id="'fixture-group-' + luaName">
+        <AnchoredH3 :id="'fixture-group-' + luaName">
             {{ luaName }}
-        </SpoofedH3>
+        </AnchoredH3>
         <table>
             <thead>
                 <tr>
@@ -18,7 +23,12 @@ const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
             <tbody>
                 <tr v-for="fixture in fixtureGroup.fixtures">
                     <td>
-                        <a :href="'#fixture-group-' + fixture">{{ fixture }}</a>
+                        <template v-if="fixtureConfig.fixtureGroups[fixture] != undefined">
+                            <a :href="'#fixture-group-' + fixture">{{ fixture }}</a>
+                        </template>
+                        <template v-else>
+                            <a :href="relativePathToFixtureInfo + '#fixture-group-' + fixture">{{ fixture }}</a>
+                        </template>
                     </td>
                 </tr>
             </tbody>

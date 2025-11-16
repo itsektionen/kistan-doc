@@ -1,6 +1,6 @@
 # Fixtures in Kistan
 ## Fixtures
-<FixtureInfo></FixtureInfo>
+<FixtureInfo relativePathToFixtureType="kistan_fixture_types.html"></FixtureInfo>
 
 ## Fixture Groups
-<FixtureGroup></FixtureGroup>
+<FixtureGroup relativePathToFixtureInfo=""></FixtureGroup>
