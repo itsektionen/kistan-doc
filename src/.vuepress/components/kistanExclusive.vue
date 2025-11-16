@@ -1,28 +1,53 @@
 <script setup lang="ts">
 const props = defineProps<{
-    lmixer?: boolean
+    exclusiveTo: string
 }>();
 
-let header = "Kistan exclusive!";
-let description = "This content only applies to Kistan";
-if (props.lmixer) {
-    header = "Kistan's LMixer exclusive";
-    description = "This content only applies to kistan's instance of LMixer. It is likely the case that the code is contained in setup scripts.";
+enum Icons {
+    Kistan
 }
+
+const exclusivityTypes: {
+    [key: string]: {
+        header: string,
+        description: string,
+        icon: Icons
+    }
+} = {
+    KistanGeneric: {
+        header: "Kistan exclusive!",
+        description: "This content only applies to Kistan",
+        icon: Icons.Kistan
+    },
+    LMixer: {
+        header: "Kistan's LMixer exclusive",
+        description: "This content only applies to kistan's instance of LMixer. It is likely the case that the code is contained in setup scripts.",
+        icon: Icons.Kistan
+    }
+}
+
+const exclusivityInfo = exclusivityTypes[props.exclusiveTo] ?? {
+    header: "Invalid exclusivity type",
+    description: "The exclusiveTo property has a value of " + props.exclusiveTo + " which is not valid",
+    icon: Icons.Kistan
+};
+
 </script>
 <template>
     <div class="kistan-exclusive">
         <div class="kistan-exclusive-top">
             <p class="kistan-exclusive-header">
-                <!-- Treasure Chest SVG from MDI-->
-                <svg class="kistan-treasure-chest-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z" />
-                </svg>
-                {{ header }}
+                <template v-if="exclusivityInfo.icon == Icons.Kistan">
+                    <!-- Treasure Chest SVG from MDI-->
+                    <svg class="kistan-treasure-chest-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z" />
+                    </svg>
+                </template>
+                {{ exclusivityInfo.header }}
             </p>
             <p class="kistan-exclusive-description">
-                {{ description }}
+                {{ exclusivityInfo.description }}
             </p>
         </div>
         <div class="kistan-exclusive-content">
@@ -50,7 +75,7 @@ if (props.lmixer) {
 
 .kistan-exclusive {
     --vp-c-bg-alt: var(--exclusive-bg-alt);
-    
+
     border: solid 0.3em var(--exclusive-border);
     border-radius: 0.5em;
     margin-block: 0.75em;
@@ -62,6 +87,7 @@ if (props.lmixer) {
 .kistan-exclusive-top {
     padding: 0.25em 1em;
 }
+
 .kistan-exclusive-content {
     padding: 0.25em 1em;
     background-color: var(--exclusive-background);
