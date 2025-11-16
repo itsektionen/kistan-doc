@@ -1,2 +1,6 @@
 # Fixtures in Kistan
-<FixtureConfigVisualizer></FixtureConfigVisualizer>
+## Fixtures
+<FixtureInfo></FixtureInfo>
+
+## Fixture Groups
+<FixtureGroup></FixtureGroup>

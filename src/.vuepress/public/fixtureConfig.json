@@ -2,6 +2,7 @@
     "formatVersion": 1,
     "fixtureTypes": {
         "wallSpotPAR64": {
+            "model": "PAR64",
             "channels": {
                 "1": {
                     "id": "colRed",
@@ -120,43 +121,6 @@
                 }
             },
             "displayName": "PAR64 Wall Spot"
-        },
-        "RGBColor": {
-            "channels": {
-                "1": {
-                    "id": "colRed",
-                    "displayName": "Red"
-                },
-                "2": {
-                    "id": "colGreen",
-                    "displayName": "Green"
-                },
-                "3": {
-                    "id": "colBlue",
-                    "displayName": "Blue"
-                }
-            },
-            "displayName": "RGB Color"
-        },
-        "BrightnessChannel": {
-            "channels": {
-                "1": {
-                    "id": "brightness",
-                    "displayName": "Brightness"
-                }
-            },
-            "displayName": "Brightness",
-            "displayNamePlural": "Brightnesses"
-        },
-        "UnknownTypeUINT8": {
-            "channels": {
-                "1": {
-                    "id": "generic8",
-                    "displayName": "Unknown 8bit"
-                }
-            },
-            "displayName": "Single Byte",
-            "displayNamePlural": "Single Bytes"
         },
         "movingHead_iMove5S": {
             "displayName": "Moving Head iMove 5S",
@@ -627,6 +591,44 @@
                     ]
                 }
             }
+        },
+        
+        "RGBColor": {
+            "channels": {
+                "1": {
+                    "id": "colRed",
+                    "displayName": "Red"
+                },
+                "2": {
+                    "id": "colGreen",
+                    "displayName": "Green"
+                },
+                "3": {
+                    "id": "colBlue",
+                    "displayName": "Blue"
+                }
+            },
+            "displayName": "RGB Color"
+        },
+        "BrightnessChannel": {
+            "channels": {
+                "1": {
+                    "id": "brightness",
+                    "displayName": "Brightness"
+                }
+            },
+            "displayName": "Brightness",
+            "displayNamePlural": "Brightnesses"
+        },
+        "UnknownTypeUINT8": {
+            "channels": {
+                "1": {
+                    "id": "generic8",
+                    "displayName": "Unknown 8bit"
+                }
+            },
+            "displayName": "Single Byte",
+            "displayNamePlural": "Single Bytes"
         }
     },
     "fixtures": {

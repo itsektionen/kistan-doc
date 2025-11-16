@@ -1,53 +1,58 @@
 <script setup lang="ts">
-import { object } from 'zod';
-import { FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
 import SpoofedH3 from '../ThemeComponents/SpoofedH3.vue';
+import * as fixtureConfig from "../../public/fixtureConfig.json"
+import { FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
 
-const props = defineProps<{
-    fixtureInfo: FixtureSchema,
-    fixtureType: FixtureTypeSchema | undefined,
-    fixtureInfoId: string
-}>();
 
-let displayName = props.fixtureInfo.displayName;
-if (Object.keys(props.fixtureInfo.fixtureChannels).length != 1) {
-    if (props.fixtureInfo.displayNamePlural) {
-        displayName = props.fixtureInfo.displayNamePlural;
-    } else {
-        displayName += "s";
+function GetDisplayName(fixtureInfo: FixtureSchema) {
+    let displayName = fixtureInfo.displayName;
+    if (Object.keys(fixtureInfo.fixtureChannels).length != 1) {
+        if (fixtureInfo.displayNamePlural) {
+            displayName = fixtureInfo.displayNamePlural;
+        } else {
+            displayName += "s";
+        }
     }
+    return displayName;
 }
-const numberOfChannels = Object.keys((props.fixtureType?.channels ?? {})).length;
+function GetFixtureType(fixtureInfo: FixtureSchema) {
+    return (fixtureConfig.fixtureTypes as Record<string, FixtureTypeSchema>)[fixtureInfo.type]
+}
+function GetNumberOfChannels(fixtureType: FixtureTypeSchema) {
+    return Object.keys((fixtureType?.channels ?? {})).length;
+}
 </script>
 <template>
-    <SpoofedH3 :id="'fixture-info-' +fixtureInfoId">{{ displayName }}</SpoofedH3>
-    <b>Fixture Type:</b> <a :href="'#fixture-type-' + fixtureInfo.type">{{ fixtureType?.displayName }}</a>
-    <template v-if="fixtureInfo.model">
-        <br/>
-        <b>Model: </b>{{fixtureInfo.model}}
-    </template>
-    <template v-if="fixtureInfo.description">
-        <br/>
-        {{fixtureInfo.description}}
-    </template>
+    <template v-for="(fixtureInfo, fixtureInfoId) in (fixtureConfig.fixtures as Record<string, FixtureSchema>)">
+        <SpoofedH3 :id="'fixture-info-' + fixtureInfoId">{{ GetDisplayName(fixtureInfo) }}</SpoofedH3>
+        <b>Fixture Type:</b> <a :href="'#fixture-type-' + fixtureInfo.type">{{ GetFixtureType(fixtureInfo)?.displayName }}</a>
+        <template v-if="fixtureInfo.model">
+            <br />
+            <b>Model: </b>{{ fixtureInfo.model }}
+        </template>
+        <template v-if="fixtureInfo.description">
+            <br />
+            {{ fixtureInfo.description }}
+        </template>
 
-    <table>
-        <thead>
-            <th>Lua Name</th>
-            <th>DMX Channels</th>
-        </thead>
-        <tbody>
-            <tr v-for="(fixtureChannel, fixtureKey) in fixtureInfo.fixtureChannels">
-                <td :id="'fixture-group-' + fixtureKey">
-                    {{ fixtureKey }}
-                </td>
-                <td v-if="numberOfChannels == 1">
-                    {{ fixtureChannel }}
-                </td>
-                <td v-else>
-                    {{ fixtureChannel }}-{{ fixtureChannel + numberOfChannels - 1}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <th>Lua Name</th>
+                <th>DMX Channels</th>
+            </thead>
+            <tbody>
+                <tr v-for="(fixtureChannel, fixtureKey) in fixtureInfo.fixtureChannels">
+                    <td :id="'fixture-group-' + fixtureKey">
+                        {{ fixtureKey }}
+                    </td>
+                    <td v-if="GetNumberOfChannels(GetFixtureType(fixtureInfo)) == 1">
+                        {{ fixtureChannel }}
+                    </td>
+                    <td v-else>
+                        {{ fixtureChannel }}-{{ fixtureChannel + GetNumberOfChannels(GetFixtureType(fixtureInfo)) - 1 }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
 </template>
