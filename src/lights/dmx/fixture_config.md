@@ -13,13 +13,53 @@ single config file which needs to be maintained.
 This config file is also responsible for generating [Fixture types in Kistan](kistan_fixture_types.html) and
 [Fixtures in Kistan's LMixer](kistan_lmixer_fixtures.html)
 
-## ID Naming
+Whenever "Lua name" is mentioned, it refers to the variable name within LMixer
+
+## Basic format
+
+For the full schema, see [the schema](#schema)
+
+The configuration file is a standard .json file, to allow maximum interopability.
+
+The file needs a `formatVersion` which specifies the version, this should be incremented for breaking changes to the schema.
+
+| key           | type                                                      | comment                                                                                                          |
+| ------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| formatVersion | number                                                    | The current version of the schema                                                                                |
+| fixtureTypes  | Record<string, [FixtureTypeSchema](#fixturetypeschema)>   | The key to the record is the ID of the fixture type                                                              |
+| fixture       | Record<string, [FixtureSchema](#fixtureschema)>           | The key to the record is just for organizational purposes within the JSON file, unnecessary usage is discouraged |
+| fixtureGroup  | Record<string, [FixtureGroupSchema](#fixturegroupschema)> | The key to the record is the Lua name of the group in LMixer                                                     |
+
+### ID Naming
 
 IDs should always follow snake_case. Capital letters are allowed in names and abreviations.
 
 When including the model name, the format is `[role/category (wash, wallspot, etc)]_[model name (abreviations AOK)]`
 
-### Channel naming
+## FixtureTypeSchema
+
+Since multiple fixtures can behave the same way, FixtureType describes how a fixture maps it's channels to functions.
+
+| key               | type                                                         | comment                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| displayName       | string                                                       | Human readable version of the name                                                                                                        |
+| displayNamePlural | string?                                                      | For non-standard plural forms of words (Shelf->Shelves), if empty, "s" is appended to the display name                                    |
+| model             | string?                                                      | If the fixtureType is for a specific model                                                                                                |
+| description       | string?                                                      | Optional extra information                                                                                                                |
+| channels          | Record<string, [FixtureChannelSchema](fixturechannelschema)> | A dictonary for what each channel maps to, the key should be the index of the dmx-channel ("1", "2", "3"). Make sure that it is 1-indexed |
+
+### FixtureChannelSchema
+
+| key                   | type                                                         | comment                                                                                                                                                                                                                                                                          |
+| --------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                    | string                                                       | An id that helps identify what this channel does, for what ID to use, see [Channel Naming](#channel-naming)                                                                                                                                                                      |
+| displayName           | string                                                       | Human readable name                                                                                                                                                                                                                                                              |
+| description           | string?                                                      | Optional extra information for documentation                                                                                                                                                                                                                                     |
+| lowerNibbleForChannel | number?                                                      | 16bit properties are divided over two bytes, this marks that this channel is the lower nibble, and the ID stored in lowerNibbleForChannel is the channel for the upper nibble. They should have the same information, but in case if a disparity, the upperNibble takes priority |
+| mapRangeForDisplay    | [RangeMappingSchema](#rangemappingschema)?                   | Used for displaying values to the user, maps the [0, 255] range to something else.                                                                                                                                                                                               |
+| rangedFunction        | [ChannelRangedFunctionSchema](#channelrangedfunctionschema)? | Some channels behave differently in different ranges, when this is the case, rangeFunction should be used                                                                                                                                                                        |
+
+#### Channel Naming
 
 There are some default names that should be used when applicable:
 
@@ -43,11 +83,35 @@ There are some default names that should be used when applicable:
 
 The `prog_` prefix (short for program\_), is used for preprogrammed functions, such as color preset and movement paths that are built in.
 
-### Ranged functions
+### RangeMappingSchema
+
+Maps the 0-255 range onto another range when displaying. Most notable use case is rotations, were mapping from [0-255] to [0 degrees, 540 degrees] makes it more intutive to control.
+
+| key | type   | comment                 |
+| --- | ------ | ----------------------- |
+| min | number | What `0` is mapped to   |
+| max | number | What `255` is mapped to |
+
+### ChannelRangedFunctionSchema
 
 Some channels are decimated into smaller chunks, for instance a relay might use 8 bits, but only has two states.
 Strobing speed for lights tend to have a deadzone, for both of these, a "ranged" function is suitable.
 (in this case ranged means divided into ranges)
+
+| key                 | type                                       | comment                                                                                          |
+| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| min                 | number                                     | The lower bound [inclusive] of the range                                                         |
+| max                 | number                                     | The upper bound [inclusive] of the range                                                         |
+| functionID          | string                                     | Identifies what this range segment does, see [Range Naming](#range-naming) for naming guidelines |
+| displayName         | string                                     | Human readable name                                                                              |
+| identialWithinRange | boolean?                                   | Set to `true` if all the values in the range behave identically                                  |
+| mapRangeForDisplay  | [RangeMappingSchema](#rangemappingschema)? | Used for displaying values to the user, maps the [0, 255] range to something else.               |
+
+:::note
+The ranges should not overlap. Overlapping ranges in undefined behavior.
+:::
+
+#### Range Naming
 
 Ranged functions can _in general_ do their own system, every model is unique after all,
 however, there are some recommended names to use _if applicable_:
@@ -62,6 +126,32 @@ however, there are some recommended names to use _if applicable_:
 | blackout        | If the color output is set to black                                                                                                                                                 |
 
 When a channel is a lower nibble, simply append `_lower` to the name.
+
+## FixtureSchema
+
+Since it is common for multiple fixture instance of the same type and model to exist, creation is grouped to allow for multiple at once. If only one is desired, only specify one channel.
+
+| key               | type    | comment                                                                                                                                                                                                                                                                                                                    |
+| ----------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type              | string  | The ID of the [Fixture Type](#fixturetypeschema) to use as the base                                                                                                                                                                                                                                                        |
+| displayName       | string? | Human readable name of the group                                                                                                                                                                                                                                                                                           |
+| displayNamePlural | string? | Plural form of the name, if null, plural form is obtained by appending "s" to the singular version                                                                                                                                                                                                                         |
+| model             | string? | The model of these fixtures. There is also a model field in the [Fixture Type Schema](#fixturetypeschema), the reason is that fixtures might use the same [Fixture Type](#fixturetypeschema) (e.g. A white LED strip and a white spotlight might both use the same brightness fixture type due to only having one channel) |
+| description       | string? | Optional extra information                                                                                                                                                                                                                                                                                                 |
+| fixtureChannels | Record<string, number> | The Lua names and channel ids for the fixtures. Each entry has it's key as the Lua name and the value as the first channel for the fixture (if the fixture has channels 10-16, then channel 10 should be specified)
+
+## FixtureGroupSchema
+
+In LMixer, fixtures can be grouped, so the config file also has support for this.
+
+| key | type | comment |
+| --- | --- | --- |
+| description | string? | Optional extra information about the group |
+| fixtures | string[] | An array of the fixtures contained. The values are the Lua names of the fixtures. Fixture groups are also allowed to be specified with their Lua name |
+
+:::note
+Take care to order the FixtureGroups such that dependecies (other fixture groups) are ***earlier*** in the file then the dependent group. This is to simply the loading.
+:::
 
 ## Schema
 
@@ -129,7 +219,7 @@ export type FixtureChannelSchema = {
   lowerNibbleForChannel?: number;
 
   // Maps the 0-255 range onto another range when displaying,
-  // Most notable use case is rotations, were mapping from [0-255]
+  // most notable use case is rotations, were mapping from [0-255]
   // to [0 degrees, 540 degrees].
   mapRangeForDisplay?: {
     min: number;
@@ -166,7 +256,7 @@ export type ChannelRangedFunction = {
   identicalWithinRange?: boolean;
 
   // Maps the 0-255 range onto another range when displaying,
-  // Most notable use case is rotations, were mapping from [0-255]
+  // most notable use case is rotations, were mapping from [0-255]
   // to [0 degrees, 540 degrees].
   mapRangeForDisplay?: {
     min: number;

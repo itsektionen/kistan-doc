@@ -61,7 +61,7 @@ export type FixtureChannelSchema = {
     lowerNibbleForChannel?: number,
 
     // Maps the 0-255 range onto another range when displaying,
-    // Most notable use case is rotations, were mapping from [0-255]
+    // most notable use case is rotations, were mapping from [0-255]
     // to [0 degrees, 540 degrees].
     mapRangeForDisplay?: {
         min: number,
@@ -99,7 +99,7 @@ export type ChannelRangedFunction = {
     identicalWithinRange?: boolean,
 
     // Maps the 0-255 range onto another range when displaying,
-    // Most notable use case is rotations, were mapping from [0-255]
+    // most notable use case is rotations, were mapping from [0-255]
     // to [0 degrees, 540 degrees].
     mapRangeForDisplay?: {
         min: number,
