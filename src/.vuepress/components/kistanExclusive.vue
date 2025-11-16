@@ -4,7 +4,7 @@ const props = defineProps<{
 }>();
 
 let header = "Kistan exclusive!";
-let description = "This content only applies to kistan";
+let description = "This content only applies to Kistan";
 if (props.lmixer) {
     header = "Kistan's LMixer exclusive";
     description = "This content only applies to kistan's instance of LMixer. It is likely the case that the the code contained in setup scripts.";
