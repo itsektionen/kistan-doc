@@ -396,4 +396,48 @@ the layer order (the order that layers are added as children).
 :::
 </ExclusiveTo>
 
+## Other keywords
+
+<ExclusiveTo exclusiveTo="LMixer">
+
+### `LMixerError`
+Prints a error message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
+
+| Name          | Optional | Description       |
+|---------------|----------|-------------------|
+| Error message | No       | The error message |
+
+***Example:*** Prints `Error: This is a test message` to mqtt.
+```lua
+LMixerError("This is a test message");
+```
+
+:::note
+Only one error message can be displayed on the UI at once, if multiple Error are made, only the latest is displayed.
+:::
+
+
+### `LMixerPrint`
+Prints a message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
+
+| Name          | Optional | Description          |
+|---------------|----------|----------------------|
+| Print message | No       | The message to print |
+
+***Example:*** Prints `Info: Testing` to mqtt.
+```lua
+LMixerPrint("Testing");
+```
+
+:::note
+Only one message can be displayed on the UI at once, if multiple messages are made, only the latest is displayed.
+:::
+
+:::details
+This is actually just adds a error message to the mqtt, however, using the appropriate function is recommended
+since if it is later updated, it will be correct.
+:::
+
+</ExclusiveTo>
+
 [1]: https://en.wikipedia.org/wiki/Art-Net
