@@ -691,13 +691,15 @@
                             "min": 0,
                             "max": 127,
                             "functionID": "off",
-                            "displayName": "Off"
+                            "displayName": "Off",
+                            "identicalWithinRange": true
                         },
                         {
                             "min": 128,
                             "max": 255,
                             "functionID": "on",
-                            "displayName": "On"
+                            "displayName": "On",
+                            "identicalWithinRange": true
                         }
                     ]
                 },
@@ -709,13 +711,15 @@
                             "min": 0,
                             "max": 127,
                             "functionID": "off",
-                            "displayName": "Off"
+                            "displayName": "Off",
+                            "identicalWithinRange": true
                         },
                         {
                             "min": 128,
                             "max": 255,
                             "functionID": "on",
-                            "displayName": "On"
+                            "displayName": "On",
+                            "identicalWithinRange": true
                         }
                     ]
                 },
@@ -727,13 +731,15 @@
                             "min": 0,
                             "max": 127,
                             "functionID": "off",
-                            "displayName": "Off"
+                            "displayName": "Off",
+                            "identicalWithinRange": true
                         },
                         {
                             "min": 128,
                             "max": 255,
                             "functionID": "on",
-                            "displayName": "On"
+                            "displayName": "On",
+                            "identicalWithinRange": true
                         }
                     ]
                 }
@@ -749,16 +755,6 @@
             },
             "displayName": "Brightness",
             "displayNamePlural": "Brightnesses"
-        },
-        "unknown_uint8_t": {
-            "channels": {
-                "1": {
-                    "id": "generic_8",
-                    "displayName": "Unknown 8bit"
-                }
-            },
-            "displayName": "Single Byte",
-            "displayNamePlural": "Single Bytes"
         }
     },
     "fixtures": {
@@ -900,7 +896,7 @@
             "description": "The shelves in the bar"
         },
         "pling": {
-            "type": "unknown_uint8_t",
+            "type": "brightness_channel",
             "fixtureChannels": {
                 "pling": 156
             },
