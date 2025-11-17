@@ -39,7 +39,7 @@ has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
 effect, when the alpha is 1, this layer fully overrides whatever is below it in
 the layer order.
 
-The alpha can be set on a per channel basis, this is done by accessing the layers
+The alpha is set on a per channel basis, this is done by accessing the layers
 `alpha` property. This is another layer which can be altered in the same way as
 other layers (i.e. `lay.alpha:add(...)`).
 
@@ -63,7 +63,7 @@ A fixture represent a single light or RGB-list. They can also be organized into
 groups. This part of the LMixer defines the names for each fixture and where in
 the layer they are located. Fixtures are not bound to a single layer.
 
-### Scrips
+### Scripts
 
 Each script is a series of instructions that are added to a timeline each time
 the run command is used. A script may repeat by running itself again. Make sure
@@ -85,7 +85,7 @@ for a looping script that loads the change on the next iteration.
 
 ### Code
 
-This act like a script but are only run once at startup (or when manually
+This acts like a script but is only run once at startup (or when manually
 triggered by the run function). Here some extra global code and different
 utility functions can be placed.
 

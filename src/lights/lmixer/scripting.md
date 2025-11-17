@@ -39,7 +39,7 @@ Alpha-data layers are layers with alpha support. The alpha blends between the la
 this one and it self. An alpha of 0 means keep the layers below, an alpha of 1 means "replace"
 the layers below with this layer.
 
-Alpha-data layers inheirt from `layer`, thus the information about `layer` also applies here.
+Alpha-data layers inherit from `layer`, thus the information about `layer` also applies here.
 
 | Name          | Optional | Description                                               |
 |---------------|----------|-----------------------------------------------------------|
@@ -78,7 +78,7 @@ jingle.alpha:add(3000, set(lamp1, 1, 1, 0, 0))
 jingle.alpha:add(4000, set(lamp1, 1, 1, 1, 0))
 ```
 :::tip
-In this case, direct alpha access makes since, however, in general taking control of the entire
+In this case, direct alpha access makes sense, however, in general taking control of the entire
 fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
 [release_control_of_fixture](#release-control-of-fixture) should be used.
 :::
@@ -164,11 +164,11 @@ lamps = { lamp1, lamp2 }
 
 Create several fixtures in a series and add them to a group.
 
-| Name   | Optional | Description                           |
-|--------|----------|---------------------------------------|
-| Count  | No       | How many fixtures to create           |
-| Offset | No       | Spacing between each fixture          |
-| Size   | No       | How many bytes does each fixture have |
+| Name   | Optional | Description                                                                             |
+|--------|----------|-----------------------------------------------------------------------------------------|
+| Count  | No       | How many fixtures to create                                                             |
+| Offset | No       | The offset from dmx channel 1, the first fixture's channel is `(Offset - 1) * Size + 1` |
+| Size   | No       | How many bytes does each fixture have                                                   |
 
 **Example:** Create 10 fixtures with 3 channels, with an offset of 1.
 
@@ -367,7 +367,7 @@ jingle:add(0, take_control_of_fixture(lamps, 1000))
 :::important
 Remember to [release the control of the fixture](#release-control-of-fixture),
 otherwise, when another script is ran, the fixture will still be controlled,
-by the the layer. 
+by the layer. 
 
 (This can sometimes be desired however, see 
 [Alpha-data layer scripting](mixing.html#alpha-data-layer-scripting) for an
