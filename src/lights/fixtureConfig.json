@@ -681,6 +681,65 @@
             },
             "displayName": "RGB Color"
         },
+        "traffic_light_3": {
+            "channels": {
+                "1": {
+                    "id": "col_red",
+                    "displayName": "Red",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 127,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 128,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "2": {
+                    "id": "col_yellow",
+                    "displayName": "Yellow",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 127,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 128,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                },
+                "3": {
+                    "id": "col_green",
+                    "displayName": "Green",
+                    "rangedFunction": [
+                        {
+                            "min": 0,
+                            "max": 127,
+                            "functionID": "off",
+                            "displayName": "Off"
+                        },
+                        {
+                            "min": 128,
+                            "max": 255,
+                            "functionID": "on",
+                            "displayName": "On"
+                        }
+                    ]
+                }
+            },
+            "displayName": "Traffic Light"
+        },
         "brightness_channel": {
             "channels": {
                 "1": {
@@ -847,6 +906,14 @@
             },
             "displayName": "Pling",
             "description": "The red light for pling?"
+        },
+        "traffic_light": {
+            "type": "traffic_light_3",
+            "fixtureChannels": {
+                "traffic_light": 188
+            },
+            "displayName": "Traffic Light",
+            "description": "The traffic light next to the stage"
         }
     },
     "fixtureGroups": {
