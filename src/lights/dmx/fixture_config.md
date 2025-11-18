@@ -1,6 +1,6 @@
 # Fixture Config File
 
-All fixtures accessable in LMixer should also be in a config file, located [here](../../data/gen/fixtureConfig.json).
+All fixtures accessable in LMixer should also be in a config file, located [here](../../data/gen/kistanFixtures.json).
 
 :::note
 Currently, the nearly all of the fixtures on the master layer are listed here, other layers are not listed.
