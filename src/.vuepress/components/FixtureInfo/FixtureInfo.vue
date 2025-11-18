@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as fixtureConfigUnknown from "../../../data/gen/kistanFixtures.json";
+import * as fixtureConfigUnknown from "../../public/data/gen/kistanFixtures.json";
 import { FixtureConfig, FixtureSchema, FixtureTypeSchema } from './fixtureConfigSchema';
 import AnchoredH3 from '../ThemeComponents/AnchoredH3.vue';
 import FixtureType from "./FixtureType.vue";
