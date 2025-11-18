@@ -1,6 +1,6 @@
-import {searchPlugin} from "@vuepress/plugin-search";
-import {defineUserConfig} from 'vuepress'
-import {defaultTheme} from "@vuepress/theme-default";
+import { searchPlugin } from "@vuepress/plugin-search";
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from "@vuepress/theme-default";
 import viteBundler from "@vuepress/bundler-vite";
 
 export default defineUserConfig({
@@ -9,8 +9,8 @@ export default defineUserConfig({
     description: "Documentation for everything in Kistan 2.0",
 
     head: [
-        ['meta', {name: 'theme-color', content: '#CC99FF'}],
-        ['meta', {name: 'apple-mobile-web-app-capable', content: 'yes'}],
+        ['meta', { name: 'theme-color', content: '#CC99FF' }],
+        ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', {
             name: 'apple-mobile-web-app-status-bar-style',
             content: 'black'
@@ -122,8 +122,8 @@ export default defineUserConfig({
                         link: '/servers/sso/',
                     },
                     {
-                      text: 'Grafana',
-                      link: '/servers/grafana'
+                        text: 'Grafana',
+                        link: '/servers/grafana'
                     },
                 ]
             },
@@ -163,8 +163,9 @@ export default defineUserConfig({
                     collapsible: false,
                     children: [
                         '/lights/dmx/',
-                        '/lights/dmx/kistan',
-                        '/lights/dmx/kistan_fixtures',
+                        '/lights/dmx/kistan_fixture_types',
+                        '/lights/dmx/kistan_lmixer_fixtures',
+                        '/lights/dmx/fixture_config',
                     ]
                 }
             ],

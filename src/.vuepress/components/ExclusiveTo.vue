@@ -59,20 +59,6 @@ const exclusivityInfo = exclusivityTypes[props.exclusiveTo] ?? {
 </template>
 
 <style>
-:root {
-    --exclusive-accent: rgb(101, 83, 202);
-    --exclusive-border: hsl(252, 79%, 87%);
-    --exclusive-background: rgb(237, 235, 255);
-    --exclusive-bg-alt: rgb(217, 204, 241);
-}
-
-[data-theme=dark] {
-    --exclusive-accent: #aeb5f5;
-    --exclusive-border: rgb(34, 39, 68);
-    --exclusive-background: rgb(23, 27, 43);
-    --exclusive-bg-alt: rgb(17, 21, 37);
-}
-
 .kistan-exclusive {
     --vp-c-bg-alt: var(--exclusive-bg-alt);
 
