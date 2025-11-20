@@ -39,4 +39,14 @@ seral port at a high speed suitable for DMX data.
 
 **GitHub**: [https://github.com/Daedaluz/dmxd][1]
 
+## DMX Network
+
+![planned]
+
+[planned]: https://raw.githubusercontent.com/insektionen/kistan/master/images/kistan_new_dmx_1.png
+
+:::note
+This DMX Network Drawing is outdated and needs to be updated
+:::
+
 [1]: https://github.com/Daedaluz/lmixer
