@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as lmixerLayersUnknown from "../../../data/gen/lmixerLayers.json";
+import * as lmixerLayersUnknown from "../../public/data/gen/lmixerLayers.json";
 import TreeGrid from "../Tree/TreeGrid.vue";
 import { TreeGridNode, TreeGridNodeConnector } from "../Tree/treeGridType.ts";
 import { LayerConfigLayer, LayerToTree, type LayerConfig } from "./layerConfigSchema.ts";
