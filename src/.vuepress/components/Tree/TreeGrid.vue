@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div :class="{layerTreeWrapper: !isChild}">
+    <div :class="{ layerTreeWrapper: !isChild }">
         <div class="treeDown">
             <TreeNode :node="tree" :is-top-node="true"></TreeNode>
             <div v-if="tree.children"></div>
@@ -50,10 +50,10 @@ onMounted(() => {
     background-color: var(--tree-bg);
     border: solid 2px var(--tree-border);
     border-radius: 0.5em;
-    
+
     padding: 1em;
     margin: 1em;
-    
+
     justify-content: center;
 
     overflow-x: auto;
@@ -62,9 +62,20 @@ onMounted(() => {
     padding-block: 4em;
 }
 
+@media (max-width: 1000px) {
+    .layerTreeWrapper {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 800px) {
+    .layerTreeWrapper {
+        font-size: 0.6rem;
+    }
+}
+
 .treeDown {
-    --row-gap: 2em;
-    --column-gap: 1em;
+    --row-gap: 1em;
+    --column-gap: 0.5em;
     --node-padding: 1em;
     --connector-node-height: 4em;
     --connector-line-width: 2px;

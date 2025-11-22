@@ -56,6 +56,8 @@ const props = defineProps<{
     justify-self: center;
 }
 .bigNode > h3 {
+    font-size: 1em;
+
     margin: 0 !important;
     padding: 0 !important;
 

@@ -4,6 +4,5 @@
 
 <LayerTreeExplaination explanationName="operandLayout"></LayerTreeExplaination>
 
-## Layer Tree
 
 <AllLayerDrawer></AllLayerDrawer>
