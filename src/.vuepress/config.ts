@@ -42,10 +42,6 @@ export default defineUserConfig({
                         link: '/drawings/sound_cables.html',
                     },
                     {
-                        text: 'DMX network',
-                        link: '/drawings/dmx_net.html'
-                    },
-                    {
                         text: 'Roof LED',
                         link: '/drawings/roof_led.html',
                     },
@@ -140,7 +136,6 @@ export default defineUserConfig({
                     children: [
                         '/drawings/furniture',
                         '/drawings/sound_cables',
-                        '/drawings/dmx_net',
                         '/drawings/roof_led',
                         '/drawings/pipes'
                     ]

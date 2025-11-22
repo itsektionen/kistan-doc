@@ -104,7 +104,7 @@ jingle.alpha:add(4000, set(lamp1, 1, 1, 1, 0))
 ```
 
 :::tip
-In this case, direct alpha access makes since, however, in general taking control of the entire
+In this case, direct alpha access makes sense, however, in general taking control of the entire
 fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
 [release_control_of_fixture](#release-control-of-fixture) should be used.
 :::
@@ -190,11 +190,11 @@ lamps = { lamp1, lamp2 }
 
 Create several fixtures in a series and add them to a group.
 
-| Name   | Optional | Description                           |
-| ------ | -------- | ------------------------------------- |
-| Count  | No       | How many fixtures to create           |
-| Offset | No       | Spacing between each fixture          |
-| Size   | No       | How many bytes does each fixture have |
+| Name   | Optional | Description                                                                             |
+|--------|----------|-----------------------------------------------------------------------------------------|
+| Count  | No       | How many fixtures to create                                                             |
+| Offset | No       | The offset from dmx channel 1, the first fixture's channel is `(Offset - 1) * Size + 1` |
+| Size   | No       | How many bytes does each fixture have                                                   |
 
 **Example:** Create 10 fixtures with 3 channels, with an offset of 1.
 
@@ -395,7 +395,7 @@ jingle:add(0, take_control_of_fixture(lamps, 1000))
 :::important
 Remember to [release the control of the fixture](#release-control-of-fixture),
 otherwise, when another script is ran, the fixture will still be controlled,
-by the the layer.
+by the layer. 
 
 (This can sometimes be desired however, see
 [Alpha-data layer scripting](mixing.html#alpha-data-layer-scripting) for an
@@ -422,6 +422,50 @@ The "take control" and "release control" terminology can be slightly confusing
 when it comes to priority. The priority is **_always_** whatever is latest in
 the layer order (the order that layers are added as children).
 :::
+</ExclusiveTo>
+
+## Other keywords
+
+<ExclusiveTo exclusiveTo="LMixer">
+
+### `LMixerError`
+Prints a error message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
+
+| Name          | Optional | Description       |
+|---------------|----------|-------------------|
+| Error message | No       | The error message |
+
+***Example:*** Prints `Error: This is a test message` to mqtt.
+```lua
+LMixerError("This is a test message");
+```
+
+:::note
+Only one error message can be displayed on the UI at once, if multiple Error are made, only the latest is displayed.
+:::
+
+
+### `LMixerPrint`
+Prints a message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
+
+| Name          | Optional | Description          |
+|---------------|----------|----------------------|
+| Print message | No       | The message to print |
+
+***Example:*** Prints `Info: Testing` to mqtt.
+```lua
+LMixerPrint("Testing");
+```
+
+:::note
+Only one message can be displayed on the UI at once, if multiple messages are made, only the latest is displayed.
+:::
+
+:::details
+This is actually just adds a error message to the mqtt, however, using the appropriate function is recommended
+since if it is later updated, it will be correct.
+:::
+
 </ExclusiveTo>
 
 [1]: https://en.wikipedia.org/wiki/Art-Net
