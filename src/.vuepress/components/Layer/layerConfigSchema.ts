@@ -97,7 +97,7 @@ function LayerToTreeRecursive(layer: LayerConfigLayer): TreeGridNodeConnector {
     }
 
     return {
-        nodeType: "connector",
+        nodeType: "combine",
         content: {
             text: operator,
         },

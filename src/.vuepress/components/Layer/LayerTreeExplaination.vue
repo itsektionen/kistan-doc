@@ -17,7 +17,7 @@ const explanations: { [key: string]: TreeGridNode } = {
                 content: {
                     text: "Operator"
                 },
-                nodeType: "connector",
+                nodeType: "combine",
                 sideInput: {
                     content: {
                         text: "Operand B"
@@ -43,7 +43,7 @@ const explanations: { [key: string]: TreeGridNode } = {
                 content: {
                     text: "mul"
                 },
-                nodeType: "connector",
+                nodeType: "combine",
                 sideInput: {
                     content: {
                         text: "Dim"
@@ -55,7 +55,7 @@ const explanations: { [key: string]: TreeGridNode } = {
                 content: {
                     text: "add"
                 },
-                nodeType: "connector",
+                nodeType: "combine",
                 sideInput:
                 {
                     content: {
@@ -67,7 +67,7 @@ const explanations: { [key: string]: TreeGridNode } = {
                             content: {
                                 text: "mul"
                             },
-                            nodeType: "connector",
+                            nodeType: "combine",
                             sideInput: {
                                 content: {
                                     text: "AdditionDim"

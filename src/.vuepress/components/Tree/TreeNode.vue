@@ -8,7 +8,7 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-    <template v-if="node.nodeType == 'dot'">
+    <template v-if="node.nodeType == 'dot' || node.nodeType == undefined">
         <div class="dotNode">
         </div>
     </template>
@@ -22,7 +22,7 @@ const props = defineProps<{
             {{ node.content?.text }}
         </div>
     </template>
-    <template v-else-if="node.nodeType == 'connector'">
+    <template v-else-if="node.nodeType == 'combine'">
         <div :class="{connectorNode:true, topNode: isTopNode}">
             {{ node.content?.text }}
         </div>
