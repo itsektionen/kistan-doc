@@ -16,6 +16,12 @@
     --exclusive-border: hsl(252, 79%, 87%);
     --exclusive-background: rgb(237, 235, 255);
     --exclusive-bg-alt: rgb(217, 204, 241);
+
+    
+    --tree-node-bg: #efddf7;
+    --tree-node-border: #dc85f7;
+    --tree-bg: #f9f2fa;
+    --tree-border: #e08cfa;
 }
 
 [data-theme='dark'] {
@@ -32,6 +38,11 @@
     --exclusive-border: rgb(34, 39, 68);
     --exclusive-background: rgb(23, 27, 43);
     --exclusive-bg-alt: rgb(17, 21, 37);
+
+    --tree-node-bg: #2b1d3f;
+    --tree-node-border: #d176e7;
+    --tree-bg: #1f1d24;
+    --tree-border: #a19cb1;
 }
 
 

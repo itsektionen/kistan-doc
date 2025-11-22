@@ -187,6 +187,7 @@ export default defineUserConfig({
                         '/lights/lmixer/scripting',
                         '/lights/lmixer/mixing',
                         '/lights/lmixer/examples',
+                        '/lights/lmixer/layers',
                     ]
                 }
             ],
