@@ -32,6 +32,59 @@ const explanations: { [key: string]: TreeGridNode } = {
                 nodeType: "big"
             }
         ]
+    },
+    "layeringExplanation": {
+        nodeType: "big",
+        content: {
+            text: "Base"
+        },
+        children: [
+            {
+                content: {
+                    text: "mul"
+                },
+                nodeType: "connector",
+                sideInput: {
+                    content: {
+                        text: "Dim"
+                    },
+                    nodeType: "big"
+                }
+            },
+            {
+                content: {
+                    text: "add"
+                },
+                nodeType: "connector",
+                sideInput:
+                {
+                    content: {
+                        text: "Addition"
+                    },
+                    nodeType: "big",
+                    children: [
+                        {
+                            content: {
+                                text: "mul"
+                            },
+                            nodeType: "connector",
+                            sideInput: {
+                                content: {
+                                    text: "AdditionDim"
+                                },
+                                nodeType: "big"
+                            }
+                        }
+                    ]
+                },
+            },
+            {
+                content: {
+                    text: "Output"
+                },
+                nodeType: "big"
+            }
+        ]
     }
 }
 </script>

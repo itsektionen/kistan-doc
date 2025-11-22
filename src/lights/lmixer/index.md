@@ -31,6 +31,15 @@ to that output.
 It is also possible to create layers from inputs. This can be used to add remote
 sources of color information from other programs.
 
+One way to think of layering is like a factory, where things are combined in steps.
+In the image below the top and right sides are inputs, bottom and left are outputs.
+
+***Example:*** This computes `(Base*Dim)+(Addition*AdditionDim)`
+
+<LayerTreeExplaination explanationName="layeringExplanation"></LayerTreeExplaination>
+
+The layer setup in kistan can be found [here](./layers.md)
+
 <ExclusiveTo exclusiveTo="LMixer">
 
 ### LayerExt

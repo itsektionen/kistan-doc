@@ -157,9 +157,44 @@
             ],
             "outputs": [
                 {
-                    "to": "LED Roof LED",
+                    "to": "LED Roof",
                     "port": 1337,
                     "description": "Outputs the data to the roof led"
+                }
+            ]
+        },
+        {
+            "name": "sign",
+            "size": 1710,
+            "op": "add",
+            "description": "Base layer for the kistan sign",
+            "children": [
+                {
+                    "name": "sign_dim",
+                    "size": 1710,
+                    "op": "mul",
+                    "default": 1,
+                    "description": "Dimmer for the sign"
+                },
+                {
+                    "name": "sign_add",
+                    "size": 1710,
+                    "op": "add",
+                    "default": 0,
+                    "description": "Addition layer for the sign"
+                }
+            ],
+            "inputs": [
+                {
+                    "port": 1234,
+                    "description": "UDP input port for the sign"
+                }
+            ],
+            "outputs": [
+                {
+                    "to": "Sign",
+                    "port": 1337,
+                    "description": "Outputs the data to the sign"
                 }
             ]
         }

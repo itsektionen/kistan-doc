@@ -57,6 +57,9 @@ onMounted(() => {
     justify-content: center;
 
     overflow-x: auto;
+
+    overflow-y: visible;
+    padding-block: 4em;
 }
 
 .treeDown {
