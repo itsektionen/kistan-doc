@@ -1,6 +1,6 @@
 # Fixture Config File
 
-All fixtures accessable in LMixer should also be in a config file, located [here](../../data/gen/kistanFixtures.json?url).
+All fixtures accessible in LMixer should also be in a config file, located [here](../../data/gen/kistanFixtures.json?url).
 
 :::note
 Currently, the nearly all of the fixtures on the master layer are listed here, other layers are not listed.
@@ -19,7 +19,7 @@ Whenever "Lua name" is mentioned, it refers to the variable name within LMixer
 
 For the full schema, see [the schema](#schema)
 
-The configuration file is a standard .json file, to allow maximum interopability.
+The configuration file is a standard .json file, to allow maximum interoperability.
 
 The file needs a `formatVersion` which specifies the version, this should be incremented for breaking changes to the schema.
 
@@ -32,21 +32,21 @@ The file needs a `formatVersion` which specifies the version, this should be inc
 
 ### ID Naming
 
-IDs should always follow snake_case. Capital letters are allowed in names and abreviations.
+IDs should always follow snake_case. Capital letters are allowed in names and abbreviations.
 
-When including the model name, the format is `[role/category (wash, wallspot, etc)]_[model name (abreviations AOK)]`
+When including the model name, the format is `[role/category (wash, wallspot, etc)]_[model name (abbreviations AOK)]`
 
 ## FixtureTypeSchema
 
 Since multiple fixtures can behave the same way, FixtureType describes how a fixture maps it's channels to functions.
 
-| key               | type                                                         | comment                                                                                                                                   |
-| ----------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| displayName       | string                                                       | Human readable version of the name                                                                                                        |
-| displayNamePlural | string?                                                      | For non-standard plural forms of words (Shelf->Shelves), if empty, "s" is appended to the display name                                    |
-| model             | string?                                                      | If the fixtureType is for a specific model                                                                                                |
-| description       | string?                                                      | Optional extra information                                                                                                                |
-| channels          | Record<string, [FixtureChannelSchema](fixturechannelschema)> | A dictonary for what each channel maps to, the key should be the index of the dmx-channel ("1", "2", "3"). Make sure that it is 1-indexed |
+| key               | type                                                         | comment                                                                                                                                    |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| displayName       | string                                                       | Human readable version of the name                                                                                                         |
+| displayNamePlural | string?                                                      | For non-standard plural forms of words (Shelf->Shelves), if empty, "s" is appended to the display name                                     |
+| model             | string?                                                      | If the fixtureType is for a specific model                                                                                                 |
+| description       | string?                                                      | Optional extra information                                                                                                                 |
+| channels          | Record<string, [FixtureChannelSchema](fixturechannelschema)> | A dictionary for what each channel maps to, the key should be the index of the dmx-channel ("1", "2", "3"). Make sure that it is 1-indexed |
 
 ### FixtureChannelSchema
 
@@ -85,7 +85,7 @@ The `prog_` prefix (short for program\_), is used for preprogrammed functions, s
 
 ### RangeMappingSchema
 
-Maps the 0-255 range onto another range when displaying. Most notable use case is rotations, were mapping from [0-255] to [0 degrees, 540 degrees] makes it more intutive to control.
+Maps the 0-255 range onto another range when displaying. Most notable use case is rotations, were mapping from [0-255] to [0 degrees, 540 degrees] makes it more intuitive to control.
 
 | key | type   | comment                 |
 | --- | ------ | ----------------------- |
@@ -98,14 +98,14 @@ Some channels are decimated into smaller chunks, for instance a relay might use 
 Strobing speed for lights tend to have a deadzone, for both of these, a "ranged" function is suitable.
 (in this case ranged means divided into ranges)
 
-| key                 | type                                       | comment                                                                                          |
-| ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| min                 | number                                     | The lower bound [inclusive] of the range                                                         |
-| max                 | number                                     | The upper bound [inclusive] of the range                                                         |
-| functionID          | string                                     | Identifies what this range segment does, see [Range Naming](#range-naming) for naming guidelines |
-| displayName         | string                                     | Human readable name                                                                              |
-| identialWithinRange | boolean?                                   | Set to `true` if all the values in the range behave identically                                  |
-| mapRangeForDisplay  | [RangeMappingSchema](#rangemappingschema)? | Used for displaying values to the user, maps the [0, 255] range to something else.               |
+| key                  | type                                       | comment                                                                                          |
+| -------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| min                  | number                                     | The lower bound [inclusive] of the range                                                         |
+| max                  | number                                     | The upper bound [inclusive] of the range                                                         |
+| functionID           | string                                     | Identifies what this range segment does, see [Range Naming](#range-naming) for naming guidelines |
+| displayName          | string                                     | Human readable name                                                                              |
+| identicalWithinRange | boolean?                                   | Set to `true` if all the values in the range behave identically                                  |
+| mapRangeForDisplay   | [RangeMappingSchema](#rangemappingschema)? | Used for displaying values to the user, maps the [0, 255] range to something else.               |
 
 :::note
 The ranges should not overlap. Overlapping ranges in undefined behavior.
@@ -131,26 +131,26 @@ When a channel is a lower nibble, simply append `_lower` to the name.
 
 Since it is common for multiple fixture instance of the same type and model to exist, creation is grouped to allow for multiple at once. If only one is desired, only specify one channel.
 
-| key               | type    | comment                                                                                                                                                                                                                                                                                                                    |
-| ----------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type              | string  | The ID of the [Fixture Type](#fixturetypeschema) to use as the base                                                                                                                                                                                                                                                        |
-| displayName       | string? | Human readable name of the group                                                                                                                                                                                                                                                                                           |
-| displayNamePlural | string? | Plural form of the name, if null, plural form is obtained by appending "s" to the singular version                                                                                                                                                                                                                         |
-| model             | string? | The model of these fixtures. There is also a model field in the [Fixture Type Schema](#fixturetypeschema), the reason is that fixtures might use the same [Fixture Type](#fixturetypeschema) (e.g. A white LED strip and a white spotlight might both use the same brightness fixture type due to only having one channel) |
-| description       | string? | Optional extra information                                                                                                                                                                                                                                                                                                 |
-| fixtureChannels | Record<string, number> | The Lua names and channel ids for the fixtures. Each entry has it's key as the Lua name and the value as the first channel for the fixture (if the fixture has channels 10-16, then channel 10 should be specified)
+| key               | type                   | comment                                                                                                                                                                                                                                                                                                                    |
+| ----------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type              | string                 | The ID of the [Fixture Type](#fixturetypeschema) to use as the base                                                                                                                                                                                                                                                        |
+| displayName       | string?                | Human readable name of the group                                                                                                                                                                                                                                                                                           |
+| displayNamePlural | string?                | Plural form of the name, if null, plural form is obtained by appending "s" to the singular version                                                                                                                                                                                                                         |
+| model             | string?                | The model of these fixtures. There is also a model field in the [Fixture Type Schema](#fixturetypeschema), the reason is that fixtures might use the same [Fixture Type](#fixturetypeschema) (e.g. A white LED strip and a white spotlight might both use the same brightness fixture type due to only having one channel) |
+| description       | string?                | Optional extra information                                                                                                                                                                                                                                                                                                 |
+| fixtureChannels   | Record<string, number> | The Lua names and channel ids for the fixtures. Each entry has it's key as the Lua name and the value as the first channel for the fixture (if the fixture has channels 10-16, then channel 10 should be specified)                                                                                                        |
 
 ## FixtureGroupSchema
 
 In LMixer, fixtures can be grouped, so the config file also has support for this.
 
-| key | type | comment |
-| --- | --- | --- |
-| description | string? | Optional extra information about the group |
-| fixtures | string[] | An array of the fixtures contained. The values are the Lua names of the fixtures. Fixture groups are also allowed to be specified with their Lua name |
+| key         | type     | comment                                                                                                                                               |
+| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| description | string?  | Optional extra information about the group                                                                                                            |
+| fixtures    | string[] | An array of the fixtures contained. The values are the Lua names of the fixtures. Fixture groups are also allowed to be specified with their Lua name |
 
 :::note
-Take care to order the FixtureGroups such that dependecies (other fixture groups) are ***earlier*** in the file then the dependent group. This is to simply the loading.
+Take care to order the FixtureGroups such that dependencies (other fixture groups) are **_earlier_** in the file then the dependent group. This is to simply the loading.
 :::
 
 ## Schema
@@ -186,7 +186,7 @@ export type FixtureTypeSchema = {
   displayName: string;
 
   // The plural form of the displayName, if left blank, the plural
-  // form is obtained by appendning "s". Useful of "shelf"->"shelves"
+  // form is obtained by appending "s". Useful of "shelf"->"shelves"
   displayNamePlural?: string;
 
   // The model/product name of the fixture
@@ -294,7 +294,7 @@ export type FixtureSchema = {
 // A group of fixtures
 export type FixtureGroupSchema = {
   // Array of the fixtures/group. The value is the Lua name,
-  // which is why both fixture groups aswell as fixtures
+  // which is why both fixture groups as well as fixtures
   // can be used
   fixtures: string[];
 

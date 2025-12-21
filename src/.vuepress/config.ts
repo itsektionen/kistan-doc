@@ -158,9 +158,6 @@ export default defineUserConfig({
                     collapsible: false,
                     children: [
                         '/lights/dmx/',
-                        '/lights/dmx/kistan_fixture_types',
-                        '/lights/dmx/kistan_lmixer_fixtures',
-                        '/lights/dmx/fixture_config',
                     ]
                 }
             ],
@@ -209,8 +206,11 @@ export default defineUserConfig({
                             text: 'Reference',
                             collapsible: true,
                             children: [
-                        '/lights/lmixer/layers',
+                                '/lights/lmixer/layers',
                                 '/lights/lmixer/macros',
+                                '/lights/lmixer/reference/kistan_fixture_types',
+                                '/lights/lmixer/reference/kistan_lmixer_fixtures',
+                                '/lights/lmixer/reference/fixture_config',
                             ]
                         },
 
