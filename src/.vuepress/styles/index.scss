@@ -17,6 +17,10 @@
     --kistan-exclusive-background: rgb(237, 235, 255);
     --kistan-exclusive-bg-alt: rgb(217, 204, 241);
 
+    --deprecated-exclusive-accent: #171618;
+    --deprecated-exclusive-border: #ffab91;
+    --deprecated-exclusive-background: #fcd8ca;
+    --deprecated-exclusive-bg-alt: rgb(255, 189, 178);
     
     --tree-node-bg: #efddf7;
     --tree-node-border: #dc85f7;
@@ -42,7 +46,7 @@
     --deprecated-exclusive-accent: #faefff;
     --deprecated-exclusive-border: #332525;
     --deprecated-exclusive-background: #291b1b;
-    --deprecated-exclusive-bg-alt: rgb(73, 60, 52);
+    --deprecated-exclusive-bg-alt: rgb(53, 34, 33);
 
     --tree-node-bg: #2b1d3f;
     --tree-node-border: #d176e7;
@@ -53,4 +57,11 @@
 
 .token.comment {
     color: rgb(166, 136, 190) !important
+}
+
+.vp-sidebar-children {
+    transition-duration: 0.2s !important;
+}
+.collapsible {
+    user-select: none;
 }

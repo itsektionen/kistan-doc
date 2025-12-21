@@ -182,46 +182,47 @@ export default defineUserConfig({
                         '/lights/lmixer/scripting',
                         '/lights/lmixer/mixing',
                         '/lights/lmixer/examples',
+                        
+                        {
+                            text: 'LMixer Addons',
+                            collapsible: true,
+                            children: [
+                                '/lights/lmixer/addons/',
+                                '/lights/lmixer/addons/addon_development',
+                                '/lights/lmixer/addons/builtin',
+                                '/lights/lmixer/addons/kistan_specific',
+
+                                {
+                                    text: 'LMixer Addon Suite',
+                                    collapsible: true,
+                                    children: [
+                                        '/lights/lmixer/addons/addon_suite/',
+                                        '/lights/lmixer/addons/addon_suite/effects',
+                                        '/lights/lmixer/addons/addon_suite/extended',
+                                        '/lights/lmixer/addons/addon_suite/util',
+                                    ]
+                                }
+                            ]
+                        },
+
+                        {
+                            text: 'Reference',
+                            collapsible: true,
+                            children: [
                         '/lights/lmixer/layers',
-                        '/lights/lmixer/macros',
-                        '/lights/lmixer/technical/',
-                        '/lights/lmixer/addons/',
-                    ]
-                }
-            ],
-            '/lights/lmixer/technical': [
-                {
-                    text: 'LMixer Technical Info',
-                    collapsible: false,
-                    children: [
-                        '/lights/lmixer/technical/',
-                        '/lights/lmixer/technical/mqtt_topics',
-                        '/lights/lmixer/technical/compatibility'
-                    ]
-                }
-            ],
-            '/lights/lmixer/addons': [
-                {
-                    text: 'LMixer Addons',
-                    collapsible: false,
-                    children: [
-                        '/lights/lmixer/addons/',
-                        '/lights/lmixer/addons/addon_development',
-                        '/lights/lmixer/addons/builtin',
-                        '/lights/lmixer/addons/kistan_specific',
-                        '/lights/lmixer/addons/addon_suite/',
-                    ]
-                }
-            ],
-            '/lights/lmixer/addons/addon_suite': [
-                {
-                    text: 'Addon Suite',
-                    collapsible: false,
-                    children: [
-                        '/lights/lmixer/addons/addon_suite/',
-                        '/lights/lmixer/addons/addon_suite/effects',
-                        '/lights/lmixer/addons/addon_suite/extended',
-                        '/lights/lmixer/addons/addon_suite/util',
+                                '/lights/lmixer/macros',
+                            ]
+                        },
+
+                        {
+                            text: 'LMixer Technical Info',
+                            collapsible: true,
+                            children: [
+                                '/lights/lmixer/technical/',
+                                '/lights/lmixer/technical/mqtt_topics',
+                                '/lights/lmixer/technical/compatibility'
+                            ]
+                        }
                     ]
                 }
             ],

@@ -46,7 +46,7 @@ intensity going down"
 [fade_on_off]: ./images/fade_on_off.png "A fade between blue and red with 
 another layer creating on/off pattern"
 
-<ExclusiveTo exclusiveTo="LMixer">
+<ExclusiveTo exclusiveTo="LMixerAddonSuiteExtensions">
 
 ## Alpha-data layer scripting
 

@@ -59,16 +59,44 @@ Table type:
 dimmer = layerExt({ name = "dimmer", parent = master, op = mul, default = 1 })
 ```
 
+
 ### `alpha_data_layer`
 
-An Alpha-Data Layer works the same as a normal layerExt, except for the fact that it
-has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
-effect, when the alpha is 1, this layer fully overrides whatever is below it in
-the layer order.
+Alpha-data layers are layers with alpha support. The alpha blends between the layers below
+this one and it self. An alpha of 0 means keep the layers below, an alpha of 1 means "replace"
+the layers below with this layer.
 
 The alpha is set on a per channel basis, this is done by accessing the layers
 `alpha` property. This is another layer which can be altered in the same way as
 other layers (i.e. `lay.alpha:add(...)`).
+
+Alpha-data layers inherit from `layerExt`, thus the information about `layerExt` also applies here.
+
+| key    | name   | Optional | Description                                                                                                             |
+| ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| name   | Name   | No       | The name of the layer, should be the same as the variable the layer is saved to. The alpha layer is the name + `_alpha` |
+| parent | Parent | No       | Layer to do operation on, `nil` if this is the base layer                                                               |
+| size   | Size   | No       | How many bytes is this layer                                                                                            |
+
+:::note
+size and default value are not applicable since theses are set by alpha_data_layer
+:::
+
+**Example:** Create a new alpha-data layer on master
+
+```lua
+jingle = alpha_data_layer({ name="jingle", parent = master, size = 512})
+```
+
+Alpha-data layers start with an alpha of 0, this needs to be changed for the layer to be visible,
+see [alpha-data-layer.alpha](#alpha-data-layer-alpha).
+
+:::warning
+Do not add child layers to an alpha-data-layer **_unless_** their operation is `mul`. This is
+because the alpha layer is processed first instead of last, causing the alpha to not apply
+correctly on the children. This is unintended and usage is **_highly_** discouraged,
+as it is subject to change.
+:::
 
 :::note
 Even if the alpha is zero, effects are still executed.
@@ -80,6 +108,30 @@ For [execute](./../../scripting.html#execute), [run](./../../scripting.html#run)
 [play](./../../scripting.html#play), and [stop_play](./../../scripting.html#stop_play), since
 they do not effect the data anyway, they are executed exactly like normal,
 regardless of the alpha.
+:::
+
+
+
+### `<alpha-data-layer>.alpha`
+
+Alpha-data layers are made of two layer, the data layer (the "main" layer"), and the alpha
+layer which is accessed via .alpha. It is a standard layer, thus the :add works like expected.
+
+**Example:** Sets the color of the lamp, but this is not visible until the layers alpha is set,
+specifically the light has it's color components (Red, Green, Blue) set to the new value one by
+one instead of all at once.
+
+```lua
+jingle:add(1000, set(lamp1, 255, 128, 255, 0))
+jingle.alpha:add(2000, set(lamp1, 1, 0, 0, 0))
+jingle.alpha:add(3000, set(lamp1, 1, 1, 0, 0))
+jingle.alpha:add(4000, set(lamp1, 1, 1, 1, 0))
+```
+
+:::tip
+In this case, direct alpha access makes sense, however, in general taking control of the entire
+fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
+[release_control_of_fixture](#release-control-of-fixture) should be used.
 :::
 
 ### `take_control_of_fixture`

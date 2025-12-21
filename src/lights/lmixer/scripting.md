@@ -31,64 +31,19 @@ is 1.
 dimmer = layer(master, mul, 512, 1)
 ```
 
-<ExclusiveTo exclusiveTo="LMixer">
 
+<ExclusiveTo exclusiveTo="LMixerAddonSuiteExtensions">
 
-### Create alpha-data layer
+#### `layerExt`
 
-Alpha-data layers are layers with alpha support. The alpha blends between the layers below
-this one and it self. An alpha of 0 means keep the layers below, an alpha of 1 means "replace"
-the layers below with this layer.
+If the LMixer Addon Suite is in use, `layerExt` should be used instead of `layer`.
 
-Alpha-data layers inherit from `layerExt`, thus the information about `layerExt` also applies here.
+See the [layerExt](./addons/addon_suite/extended.html#layerext) for details.
 
-| key    | name   | Optional | Description                                                                                                             |
-| ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| name   | Name   | No       | The name of the layer, should be the same as the variable the layer is saved to. The alpha layer is the name + `_alpha` |
-| parent | Parent | No       | Layer to do operation on, `nil` if this is the base layer                                                               |
-| size   | Size   | No       | How many bytes is this layer                                                                                            |
+### Create Alpha-Layer
 
-:::note
-size and default value are not applicable since theses are set by alpha_data_layer
-:::
+Alpha layers allow for more advanced mixing. To create them, see the [alpha_data_layer](./addons/addon_suite/extended.html#alpha-data-layer)
 
-**Example:** Create a new alpha-data layer on master
-
-```lua
-jingle = alpha_data_layer({ name="jingle", parent = master, size = 512})
-```
-
-Alpha-data start with an alpha of 0, this needs to be changed for the layer to be visible,
-see [alpha-data-layer.alpha](#alpha-data-layer-alpha).
-
-:::warning
-Do not add child layers to an alpha-data-layer **_unless_** their operation is `mul`. This is
-because the alpha layer is processed first instead of last, causing the alpha to not apply
-correctly on the children. This is unintended and usage is **_highly_** discouraged,
-as it is subject to change.
-:::
-
-### `<alpha-data-layer>.alpha`
-
-Alpha-data layers are made of two layer, the data layer (the "main" layer"), and the alpha
-layer which is accessed via .alpha. It is a standard layer, thus the :add works like expected.
-
-**Example:** Sets the color of the lamp, but this is not visible until the layers alpha is set,
-specifically the light has it's color components (Red, Green, Blue) set to the new value one by
-one instead of all at once.
-
-```lua
-jingle:add(1000, set(lamp1, 255, 128, 255, 0))
-jingle.alpha:add(2000, set(lamp1, 1, 0, 0, 0))
-jingle.alpha:add(3000, set(lamp1, 1, 1, 0, 0))
-jingle.alpha:add(4000, set(lamp1, 1, 1, 1, 0))
-```
-
-:::tip
-In this case, direct alpha access makes sense, however, in general taking control of the entire
-fixture is desired, for this [take_control_of_fixture](#take-control-of-fixture) and
-[release_control_of_fixture](#release-control-of-fixture) should be used.
-:::
 </ExclusiveTo>
 
 ### `output`
@@ -166,6 +121,16 @@ lamp1 = fix(128, 4)
 lamp2 = fix(132, 4)
 lamps = { lamp1, lamp2 }
 ```
+
+<ExclusiveTo exclusiveTo="LMixerAddonSuiteExtensions">
+
+### `fixExt`
+
+If the LMixer Addon Suite is in use, `fixExt` should be used instead of `fix`.
+
+See [fixExt](./addons/addon_suite/extended.html#fixext) for details.
+
+</ExclusiveTo>
 
 ### `range`
 
@@ -379,6 +344,70 @@ Stop playback of all sound files. No parameters.
 ```lua
 stop_play()
 ```
+</ExclusiveTo>
+
+<ExclusiveTo exclusiveTo="LMixerAddonSuite">
+
+### `interval`
+
+Runs a function at an interval. See [interval](./addons/addon_suite/effects.html#interval) for details.
+
+</ExclusiveTo>
+
+<ExclusiveTo exclusiveTo="LMixerAddonSuiteExtensions">
+
+### `<alpha-data-layer>.alpha`
+
+Access to the alpha layer.
+
+See [`<alpha-data-layer>.alpha` in Addon Suite Extension](./addons/addon_suite/extended.html#alpha-data-layer-alpha) for details.
+
+### `take_control_of_fixture`
+
+Takes control of a fixture on an alpha layer.
+
+See [`take_control_of_fixture` in Addon Suite Extension](./addons/addon_suite/extended.html#take-control-of-fixture) for details.
+
+### `release_control_of_fixture`
+
+Releases control of a fixture on an alpha layer.
+
+See [`release_control_of_fixture` in Addon Suite Extension](./addons/addon_suite/extended.html#release-control-of-fixture) for details.
+
+</ExclusiveTo>
+
+<ExclusiveTo exclusiveTo="LMixerKistanExclusiveAddon">
+
+### `roof_shader`
+
+Creates a shader effect for the roof.
+
+See [`roof_shader` in Kistan_specific Addons](./addons/kistan_specific.html#roof-shader) for details.
+
+### `sign_shader`
+
+Creates a shader effect for the Kistan sign.
+
+See [`sign_shader` in Kistan_specific Addons](./addons/kistan_specific.html#sign-shader) for details.
+
+### `sign_spiral`
+
+Creates a spiral shader for the Kistan sign.
+
+See [`sign_spiral` in Kistan_specific Addons](./addons/kistan_specific.html#sign-spiral) for details.
+
+### `sign_heartbeat`
+
+Creates a heartbeat effect for the Kistan sign.
+
+See [`sign_heartbeat` in Kistan_specific Addons](./addons/kistan_specific.html#sign-heartbeat) for details.
+
+### `drinks_moving_blocks`
+
+Creates moving blocks on the drink lights.
+
+See [`drinks_moving_blocks` in Kistan_specific Addons](./addons/kistan_specific.html#drinks-moving-blocks) for details.
+
 </ExclusiveTo>
 
 ## Script keywords
