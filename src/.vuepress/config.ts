@@ -185,6 +185,7 @@ export default defineUserConfig({
                         '/lights/lmixer/layers',
                         '/lights/lmixer/macros',
                         '/lights/lmixer/technical/',
+                        '/lights/lmixer/addons/',
                     ]
                 }
             ],
@@ -196,6 +197,31 @@ export default defineUserConfig({
                         '/lights/lmixer/technical/',
                         '/lights/lmixer/technical/mqtt_topics',
                         '/lights/lmixer/technical/compatibility'
+                    ]
+                }
+            ],
+            '/lights/lmixer/addons': [
+                {
+                    text: 'LMixer Addons',
+                    collapsible: false,
+                    children: [
+                        '/lights/lmixer/addons/',
+                        '/lights/lmixer/addons/addon_development',
+                        '/lights/lmixer/addons/builtin',
+                        '/lights/lmixer/addons/kistan_specific',
+                        '/lights/lmixer/addons/addon_suite/',
+                    ]
+                }
+            ],
+            '/lights/lmixer/addons/addon_suite': [
+                {
+                    text: 'Addon Suite',
+                    collapsible: false,
+                    children: [
+                        '/lights/lmixer/addons/addon_suite/',
+                        '/lights/lmixer/addons/addon_suite/effects',
+                        '/lights/lmixer/addons/addon_suite/extended',
+                        '/lights/lmixer/addons/addon_suite/util',
                     ]
                 }
             ],

@@ -40,41 +40,6 @@ In the image below the top and right sides are inputs, bottom and left are outpu
 
 The layer setup in kistan can be found [here](./layers.md)
 
-<ExclusiveTo exclusiveTo="LMixer">
-
-### LayerExt
-
-Layer Extended is used in the same way, however it has more functionality.
-
-1. When saving the layer file, the layers retain their data (old data is copied over using the name parameter)
-2. Layers' data can be read out using mqtt
-
-The part that is not backwards compatable is creation, see [Scripting](./scripting.md#create-layerext) for the new usage.
-### Alpha-Data Layers
-
-An Alpha-Data Layer works the same as a normal layerExt, except for the fact that it
-has an alpha value, which defaults to 0. When the alpha is 0, this layer has no
-effect, when the alpha is 1, this layer fully overrides whatever is below it in
-the layer order.
-
-The alpha is set on a per channel basis, this is done by accessing the layers
-`alpha` property. This is another layer which can be altered in the same way as
-other layers (i.e. `lay.alpha:add(...)`).
-
-:::note
-Even if the alpha is zero, effects are still executed.
-
-For [set](scripting.html#set) and [dim](scripting.html#dim), the new data is
-calculated, but does not take effect until the alpha is set to a non-zero value.
-
-For [execute](scripting.html#execute), [run](scripting.html#run),
-[play](scripting.html#play), and [stop_play](scripting.html#stop_play), since
-they do not effect the data anyway, they are executed exactly like normal,
-regardless of the alpha.
-:::
-
-</ExclusiveTo>
-
 ### Fixtures
 
 A fixture represent a single light or RGB-list. They can also be organized into

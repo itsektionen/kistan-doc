@@ -33,25 +33,6 @@ dimmer = layer(master, mul, 512, 1)
 
 <ExclusiveTo exclusiveTo="LMixer">
 
-### Create layerExt
-
-Creation of a [LayerExt](./index.md#layerext) is done through a single table argument:
-
-Table type:
-
-| key     | name      | Optional | Description                                                                     |
-| ------- | --------- | -------- | ------------------------------------------------------------------------------- |
-| name    | Name      | No       | The name of the layer, should be the same as the variable the layer is saved to |
-| parent  | Parent    | Yes      | Layer to do operation on, `nil` if this is the base layer                       |
-| op      | Operation | No       | See operations below                                                            |
-| size    | Size      | No       | How many bytes is this layer                                                    |
-| default | default   | Yes      | Default value for all bytes in a layer                                          |
-
-**Example:** Create a new layer that multiplies master with this. Default value is 1.
-
-```lua
-dimmer = layerExt({ name = "dimmer", parent = master, op = mul, default = 1 })
-```
 
 ### Create alpha-data layer
 
@@ -375,6 +356,8 @@ Since this always executes the script, if a call loop exists, stopping individua
 from the UI will not work, you need to stop all scripts.
 :::
 
+<ExclusiveTo exclusiveTo="LMixer">
+
 ### `play`
 
 | Name     | Optional | Description                                       |
@@ -396,54 +379,6 @@ Stop playback of all sound files. No parameters.
 ```lua
 stop_play()
 ```
-
-<ExclusiveTo exclusiveTo="LMixer">
-
-### `take_control_of_fixture`
-
-Sets the alpha of a fixture group to 1 over a transition time
-
-| Name      | Optional | Description                |
-| --------- | -------- | -------------------------- |
-| Group     | No       | Group to iterate over      |
-| Fade Time | No       | Fade time until alpha is 1 |
-
-**_Example:_** Take control of the washes and lamps
-
-```lua
-jingle:add(0, take_control_of_fixture(lamps, 1000))
-```
-
-:::important
-Remember to [release the control of the fixture](#release-control-of-fixture),
-otherwise, when another script is ran, the fixture will still be controlled,
-by the layer. 
-
-(This can sometimes be desired however, see
-[Alpha-data layer scripting](mixing.html#alpha-data-layer-scripting) for an
-example of multi-script layer control)
-:::
-
-### `release_control_of_fixture`
-
-Sets the alpha of a fixture group to 0 over a transition time
-
-| Name      | Optional | Description                |
-| --------- | -------- | -------------------------- |
-| Group     | No       | Group to iterate over      |
-| Fade Time | No       | Fade time until alpha is 0 |
-
-**_Example:_** Releases control of the lamps
-
-```lua
-jingle:add(3000, release_control_of_fixture(lamps, 1000))
-```
-
-:::note
-The "take control" and "release control" terminology can be slightly confusing
-when it comes to priority. The priority is **_always_** whatever is latest in
-the layer order (the order that layers are added as children).
-:::
 </ExclusiveTo>
 
 ## Script keywords
@@ -489,49 +424,5 @@ if (Scripts.rainbow:is_stopped()) then
     Scripts.rainbow_roof:stop()
 end
 ```
-
-## Other keywords
-
-<ExclusiveTo exclusiveTo="LMixer">
-
-### `LMixerError`
-Prints a error message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
-
-| Name          | Optional | Description       |
-|---------------|----------|-------------------|
-| Error message | No       | The error message |
-
-***Example:*** Prints `Error: This is a test message` to mqtt.
-```lua
-LMixerError("This is a test message");
-```
-
-:::note
-Only one error message can be displayed on the UI at once, if multiple Error are made, only the latest is displayed.
-:::
-
-
-### `LMixerPrint`
-Prints a message to mqtt, which thus gets displayed on the LMixer UI. Useful for debugging.
-
-| Name          | Optional | Description          |
-|---------------|----------|----------------------|
-| Print message | No       | The message to print |
-
-***Example:*** Prints `Info: Testing` to mqtt.
-```lua
-LMixerPrint("Testing");
-```
-
-:::note
-Only one message can be displayed on the UI at once, if multiple messages are made, only the latest is displayed.
-:::
-
-:::details
-This is actually just adds a error message to the mqtt, however, using the appropriate function is recommended
-since if it is later updated, it will be correct.
-:::
-
-</ExclusiveTo>
 
 [1]: https://en.wikipedia.org/wiki/Art-Net
