@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as fixtureConfigUnknown from "../../public/data/gen/kistanFixtures.json";
+import * as fixtureConfigUnknown from "../../../data/gen/kistanFixtures.json";
 import { FixtureConfig, FixtureSchema } from './fixtureConfigSchema';
 import FixtureInfo from "./FixtureInfo.vue";
 const fixtureConfig = fixtureConfigUnknown as FixtureConfig;
