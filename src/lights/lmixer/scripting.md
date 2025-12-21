@@ -59,7 +59,7 @@ Alpha-data layers are layers with alpha support. The alpha blends between the la
 this one and it self. An alpha of 0 means keep the layers below, an alpha of 1 means "replace"
 the layers below with this layer.
 
-Alpha-data layers inheirt from `layerExt`, thus the information about `layerExt` also applies here.
+Alpha-data layers inherit from `layerExt`, thus the information about `layerExt` also applies here.
 
 | key    | name   | Optional | Description                                                                                                             |
 | ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ see [alpha-data-layer.alpha](#alpha-data-layer-alpha).
 :::warning
 Do not add child layers to an alpha-data-layer **_unless_** their operation is `mul`. This is
 because the alpha layer is processed first instead of last, causing the alpha to not apply
-correctly on the children. This is unintented and usage is **_highly_** discouraged,
+correctly on the children. This is unintended and usage is **_highly_** discouraged,
 as it is subject to change.
 :::
 
@@ -332,9 +332,11 @@ starting it again after some time. Can also be used to split common effects into
 separate script and then combining them.
 
 :::note
-When running a script from another script and it has been previously stopped,
-add the flag `script_name*._stop = false`. Otherwise, it will not be placed on
-the timeline.
+When running a script from another script and it has been previously stopped, it
+will not be placed on the timeline. [start](#start) bypasses this and starts it
+anyway.
+
+If this stopping is desired run `Scripts.script_name:unstop()` beforehand.
 :::
 
 | Name | Optional | Description                                     |
@@ -351,6 +353,26 @@ run("rainbow")
 If not careful one might cause stacking of script if the run command is issued
 before the last effect of the previous run. This causes an infinite loop of
 scripts starting on top of each other until something crashes.
+:::
+
+
+### `start`
+
+Similar to [run](#run) except it always executes.
+
+| Name | Optional | Description                                     |
+| ---- | -------- | ----------------------------------------------- |
+| Name | No       | Name of the script to run, must be quoted (`"`) |
+
+**Example:** Execute the script called "rainbow".
+
+```lua
+start("rainbow")
+```
+
+:::danger
+Since this always executes the script, if a call loop exists, stopping individually
+from the UI will not work, you need to stop all scripts.
 :::
 
 ### `play`
@@ -423,6 +445,50 @@ when it comes to priority. The priority is **_always_** whatever is latest in
 the layer order (the order that layers are added as children).
 :::
 </ExclusiveTo>
+
+## Script keywords
+
+Scripts are accessed from `Scripts.` in the global scope.
+
+:::note Compatibility mode
+If `builtin/compatibility/MakeScriptNamesGlobalScope` is added as an addon,
+scripts start in the global scope.
+:::
+
+### `<script>:start`
+Runs a script, this is synchronous and will be executed instantly.
+
+**Example:** Start rainbow instantly
+```lua
+Scripts.rainbow:start()
+```
+
+### `<script>:stop`
+Stops a script, this only affects [run](#run)
+
+**Example:** Stops rainbow
+```lua
+Scripts.rainbow:stop()
+```
+
+### `<script>:unstop`
+Unstops a script, this allows [run](#run) to execute this script again
+
+**Example:** Unstops rainbow
+```lua
+Scripts.rainbow:unstop()
+```
+
+### `<script>:is_stopped()`
+Checks if a script has been stopped, useful for having multiple script
+
+**Example:** Checks if rainbow is stopped, and stops rainbow_roof if
+that is the case
+```lua
+if (Scripts.rainbow:is_stopped()) then
+    Scripts.rainbow_roof:stop()
+end
+```
 
 ## Other keywords
 

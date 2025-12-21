@@ -10,6 +10,7 @@
   "repository": "github.com/itsektionen/kistan-doc/",
   "scripts": {
     "dev": "DEBUG=true vuepress dev --host 0.0.0.0 src/",
+    "dev-windows": "vuepress dev --host 0.0.0.0 src/",
     "build": "vuepress build src/",
     "serve": "vuepress serve --port 8080 --cors src/"
   },

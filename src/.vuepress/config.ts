@@ -183,6 +183,19 @@ export default defineUserConfig({
                         '/lights/lmixer/mixing',
                         '/lights/lmixer/examples',
                         '/lights/lmixer/layers',
+                        '/lights/lmixer/macros',
+                        '/lights/lmixer/technical/',
+                    ]
+                }
+            ],
+            '/lights/lmixer/technical': [
+                {
+                    text: 'LMixer Technical Info',
+                    collapsible: false,
+                    children: [
+                        '/lights/lmixer/technical/',
+                        '/lights/lmixer/technical/mqtt_topics',
+                        '/lights/lmixer/technical/compatibility'
                     ]
                 }
             ],
