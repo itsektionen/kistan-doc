@@ -113,6 +113,11 @@ sign_dim:add(0, sign_shader(sign_spiral({
     falloff_power=20}), 100000))
 ```
 
+:::note
+The sign's coordinates are very spaced out. While on the roof it is 1unit/pixel, on the sign
+it is significantly larger.
+:::
+
 ### `sign_heartbeat`
 
 Make the "heartbeat shaped A" pulse.

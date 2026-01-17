@@ -57,19 +57,19 @@ not exact, and is subject to change the internal math.
 | colB      | The ending color                      |
 | lerpValue | The position along the lerp, 0=A, 1=B |
 
-### `color_to_srgb`
+### `color_from_srgb`
 
-Converts a [RGBColor](#rgbcolor) to be interpreted in srgb. Useful for displaying in
+Converts a [RGBColor](#rgbcolor) from srgb to linear. Useful for displaying in
 linear color gammas - such as LEDs.
 
-### `hex_to_srgb`
+### `linear_from_srgb_hex`
 
-Same as [color_to_srgb](#color_to_srgb), except it takes in a hex value
+Same as [color_from_srgb](#color-from-srgb), except it takes in a hex value
 
 **_Example:_** Make the sign laser violet
 
 ```lua
-local laserViolet = hex_to_srgb(0xcc99ff)
+local laserViolet = linear_from_srgb_hex(0xcc99ff)
 sign:add(0, set(laserViolet.r, laserViolet.g, laserViolet.g))
 ```
 
@@ -105,9 +105,9 @@ local laserViolet = rgb_color_to_rgb_table({
 })
 ```
 
-### `color_table_to_srgb`
+### `color_table_from_srgb`
 
-Same as [color_to_srgb](#color-to-srgb), except with [ColorTable](#colortable)
+Same as [color_from_srgb](#color-from-srgb), except with [ColorTable](#colortable)
 instead of [RGBColor](#rgbcolor)
 
 ### `color_table_lerp`
@@ -117,7 +117,7 @@ instead of [RGBColor](#rgbcolor)
 
 ### `color_srgb_table_hex`
 
-Same as [hex_to_srgb](#hex-to-srgb), except with [ColorTable](#colortable)
+Same as [linear_from_srgb_hex](#linear-from-srgb-hex), except with [ColorTable](#colortable)
 instead of [RGBColor](#rgbcolor)
 </ExclusiveTo>
 
