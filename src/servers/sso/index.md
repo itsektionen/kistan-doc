@@ -8,17 +8,8 @@ resources and apps. It can be used as a backend for both OAuth2, SAML and OIDC.
 This is supported by Google Workspace via LDAP as the source for accounts and
 groups.
 
-The service is hosted on the domain [https://goauthentik.io/][2] where a login
+The service is hosted on the domain [https://sso.kth.it/][2] where a login
 will also show a dashboard with available apps.
-
-## Login flow
-
-1. User navigates to app domain.
-2. User is redirected to the SSO service at [https://sso.kth.it][2].
-3. User needs to log in and is redirected to Google sign in.
-4. After sign in user is redirected back to the SSO service.
-5. User is checked against group and roles.
-6. If all OK, redirect back to the app requested.
 
 ## Auth proxy
 

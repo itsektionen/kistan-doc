@@ -235,6 +235,16 @@ export default defineUserConfig({
                         '/guides/sound/bar_to_kitchen',
                     ]
                 },
+            ],
+            '/servers/sso': [
+                {
+                    text: 'SSO / Login',
+                    collapsible: false,
+                    children: [
+                        '/servers/sso/backup_access',
+                        '/servers/sso/login_flow',
+                    ]
+                }
             ]
         }
     })
