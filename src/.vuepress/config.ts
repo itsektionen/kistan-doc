@@ -243,6 +243,7 @@ export default defineUserConfig({
                     children: [
                         '/servers/sso/backup_access',
                         '/servers/sso/login_flow',
+                        '/servers/sso/google_workspace',
                     ]
                 }
             ]
